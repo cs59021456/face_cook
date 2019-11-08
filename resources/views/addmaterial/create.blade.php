@@ -84,6 +84,72 @@
                                 <option value="ปลาหมึก">ปลาหมึก</option>
                                 <option value="ปู">ปู</option>
                                 <option value="หอย">หอย</option>
+
+                                <option value="ตำลึง">ตำลึง</option>
+                                <option value="คะน้า">คะน้า</option>
+                                <option value="มะเขือ">มะเขือ</option>
+                                <option value="พริกชี้ฟ้า">พริกชี้ฟ้า</option>
+                                <option value="ถั่วฝักยาว">ถั่วฝักยาว</option>
+                                <option value="มะเขือเทศ">มะเขือเทศ</option>
+                                <option value="บร็อคโคลี่">บร็อคโคลี่</option>
+                                <option value="กระเทียม">กระเทียม</option>
+                                <option value="แตงกวา">แตงกวา</option>
+                                <option value="หน่อไม้ฝรั่ง">หน่อไม้ฝรั่ง</option>
+                                <option value="ผักบุ้งจีน">ผักบุ้งจีน</option>
+                                <option value="ต้นอ่อนทานตะวัน">ต้นอ่อนทานตะวัน</option>
+                                <option value="ผักสลัด">ผักสลัด</option>
+                                <option value="ถั่วงอก">ถั่วงอก</option>
+                                <option value="กวางตุ้ง">กวางตุ้ง</option>
+                                <option value="มะระ ">มะระ </option>
+                                <option value="ต้นหอม">ต้นหอม</option>
+                                <option value="ผักชี ">ผักชี </option>
+                                <option value="คื่นฉ่าย">คื่นฉ่าย</option>
+                                <option value="เห็ดนางฟ้า">เห็ดนางฟ้า</option>
+                                <option value="กะเพรา">กะเพรา</option>
+                                <option value="โหระพา">โหระพา</option>
+                                <option value="ขิง">ขิง</option>
+                                <option value="ข่า">ข่า</option>
+                                <option value="ตะไคร้">ตะไคร้</option>
+                                <option value="ใบมะกรูด">ใบมะกรูด</option>
+                                <option value="กะหล่ำดอก">กะหล่ำดอก </option>
+                                <option value="กะหล่ำปลี">กะหล่ำปลี</option>
+                                <option value="ผักกาดเขียว">ผักกาดเขียว</option>
+                                <option value="ผักกาดขาว">ผักกาดขาว</option>
+                                <option value="กุยช่าย">กุยช่าย</option>
+                                <option value="ผักโขม">ผักโขม</option>
+                                <option value="แครอท">แครอท</option>
+                                <option value="ชะอม">ชะอม</option>
+                                <option value="ถั่วพู">ถั่วพู</option>
+                                <option value="ถั่วลันเตา">ถั่วลันเตา</option>
+                                <option value="พริกขี้หนู">พริกขี้หนู</option>
+                                <option value="ฟักทอง">ฟักทอง</option>
+                                <option value="หอมใหญ่">หอมใหญ่</option>
+                                <option value="หอมแดง">หอมแดง</option>
+                                <option value="หน่อไม้">หน่อไม้</option>
+                                <option value="เห็ดหอม">เห็ดหอม</option>
+                                <option value="เห็ดฟาง">เห็ดฟาง</option>
+                                <option value="เห็ดหูหนู">เห็ดหูหนู</option>
+                                <option value="มะเขือพวง">มะเขือพวง</option>
+                                <option value="แค">แค</option>
+                                <option value="ชะพลู">ชะพลู</option>
+                                <option value="บวบ">บวบ</option>
+                                <option value="ผักกระเฉด">ผักกระเฉด</option>
+                                <option value="หัวไชเท้า">หัวไชเท้า</option>
+                                <option value="ผักหวาน">ผักหวาน</option>
+                                <option value="ฟักเขียว">ฟักเขียว</option>
+                                <option value="มะนาว">มะนาว</option>
+                                <option value="ข้าวโพดอ่อน">ข้าวโพดอ่อน</option>
+                                <option value="มะระกอ">มะระกอ</option>
+                                <option value="ดอกขจร">ดอกขจร</option>
+                                <option value="เห็ดโคน">เห็ดโคน</option>
+                                <option value="มันเทศ">มันเทศ</option>
+                                <option value="ผักชีฝรั่ง">ผักชีฝรั่ง</option>
+                                <option value="ใบกะเพราช้าง">ใบกะเพราช้าง</option>
+                                <option value="บีทรูท">บีทรูท</option>
+                                <option value="พริกไทย">พริกไทย</option>
+                                <option value="มะขาม">มะขาม</option>
+
+
                             </select>
                         </div>
 
@@ -113,7 +179,15 @@
                                 <option value="8">8</option>
                                 <option value="9">9</option>
                                 <option value="10">10</option>
-                                <option value="11">11</option>
+                                <option value="100">100</option>
+                                <option value="200">200</option>
+                                <option value="300">300</option>
+                                <option value="400">400</option>
+                                <option value="500">500</option>
+                                <option value="600">600</option>
+                                <option value="700">700</option>
+                                <option value="800">800</option>
+                                <option value="900">900</option>
                             </select>
                         </div>
 
@@ -146,7 +220,7 @@
                         <!-------ปุ่มบันทึกกับปุ่มกลับหน้าโฮม----->
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                             <button type="submit" class="btn btn-primary">บันทึก</button>
-                            <a class="btn btn-primary" href="{{ route('addmaterial.index') }}">ย้อนกลับ</a>
+                            <a class="btn btn-primary" href="{{ route('home') }}">ย้อนกลับ</a>
                         </div>
                     </div>
                 </form>

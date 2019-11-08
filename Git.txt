@@ -1,0 +1,7 @@
+git status //ดูว่าสถานะเป็นสีอะไร 
+git add . //เพิ่มไฟล์เข้าสู่ Repository
+git status
+git commit -m "add all"
+git push -u origin master // อัพขึ้น github
+
+

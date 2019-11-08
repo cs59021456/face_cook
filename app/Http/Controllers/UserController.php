@@ -70,11 +70,17 @@ class UserController extends Controller
     public function update(Request $request)
     {error_log('gg');
         $request->validate([
+            'avatar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'name' => 'required',
             'first_name' => 'required',
             'last_name' => 'required',
         ]);
+
         $user = User::find(Auth::user()->id);
+        $avatarName = $user->id.'_avatar'.time().'.'.request()->avatar->getClientOriginalExtension();
+        $request->avatar->storeAs('avatars',$avatarName);
+
+        $user->avatar = $avatarName;
         $user->name =  $request->get('name');
         $user->first_name =  $request->get('first_name');
         $user->last_name =  $request->get('last_name');

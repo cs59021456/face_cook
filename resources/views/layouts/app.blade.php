@@ -61,8 +61,13 @@
                                     <button type="button" class="btn btn-warning"> <a class="text-dark"  href="/refme/{{Auth::user()->id}}">ตู้เย็นของฉัน<span class="sr-only">(current)</span></a></button>
                                     <button type="button" class="btn btn-warning"> <a class="text-dark" href="{{route('ref.create')}}">เพิ่มตู้เย็น<span class="sr-only">(current)</span></a></button>
 
+
+
+
                                     <!-- ชื่อของคนที่ล็อคอินเข้ามา กดdropdown แล้วมีฟังก์ชั่นอื่นๆ -->
                                      <li class="nav-item dropdown bg-warning">
+
+
                                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                             {{ Auth::user()->name }} <span class="caret"></span>
                                         </a>

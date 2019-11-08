@@ -28,7 +28,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>รายละเอียดตู้เย็น:</strong>
-                    <textarea class="form-control" style="height:150px" name="intro" placeholder="Introduction"></textarea>
+                    <textarea class="form-control" style="height:150px" name="intro" placeholder="{{$refs->intro}}"></textarea>
                 </div>
             </div>
 

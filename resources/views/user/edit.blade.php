@@ -32,25 +32,28 @@
             </div>
           </div>
 
-          <form action="{{'/user/update'}}" method="POST">
+          <form action="{{'/user/update'}}" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="form-row">
+              <div class="form-row">
+                  <div class="form-group col-md">
+                    <input type="file" class="form-control-file" name="avatar" id="avatarFile" aria-describedby="fileHelp">
+                  </div><br>
 
-              <div class="form-group col-md-6">
-                <label for="inputEmail4">Username</label>
-                <input type="text" class="form-control" id="inputEmail4" value="{{Auth::user()->name}}" name="name">
-              </div>
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Username</label>
+                    <input type="text" class="form-control" id="inputEmail4" value="{{Auth::user()->name}}" name="name">
+                </div>
 
 
-              <div class="form-group col-md-6">
-                <label for="inputEmail4">ชื่อจริง</label>
-                <input type="text" class="form-control" id="inputEmail4" value="{{Auth::user()->first_name}}" name="first_name">
-              </div>
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">ชื่อจริง</label>
+                    <input type="text" class="form-control" id="inputEmail4" value="{{Auth::user()->first_name}}" name="first_name">
+                </div>
 
-              <div class="form-group col-md-6">
-                <label for="inputPassword4">นามสกุล</label>
-                <input type="text" class="form-control" id="inputPassword4" value="{{Auth::user()->last_name}}" name="last_name">
-              </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPassword4">นามสกุล</label>
+                    <input type="text" class="form-control" id="inputPassword4" value="{{Auth::user()->last_name}}" name="last_name">
+                </div>
 
             </div>
 

@@ -71,7 +71,7 @@
             <img class="w3-image" src="img/6.jpg" alt="Hamburger Catering" >
 
         </div>
-<body><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<body><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <div class="flex-center position-ref full-height">
 
         <!doctype html>

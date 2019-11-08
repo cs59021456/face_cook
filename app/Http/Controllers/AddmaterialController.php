@@ -52,7 +52,7 @@ class AddmaterialController extends Controller
         $request->user_id = auth::user()->id;
         Addmaterial::create($request->all());
 
-        return redirect()->route('addmaterial.index')
+        return redirect()->route('home')
                         ->with('success','created successfully.');
     }
 

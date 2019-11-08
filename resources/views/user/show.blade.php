@@ -19,6 +19,11 @@
           โปรไฟล์ผู้ใช้
         </div>
         <div class="card-body">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <img class="rounded-circle" width="150" height="150" src="storage/avatars/{{ Auth::user()->avatar}}" />
+                        </div>
+                    </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Username:</strong>
