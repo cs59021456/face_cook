@@ -24,17 +24,23 @@
                 <a href="/Addmater/create/{{$item->id}}" class="btn btn-outline-success">เพิ่มวัตถุดิบเข้าตู้เย็น</a>
                 <a href="/Addmater/show/{{$item->id}}" class="btn btn-outline-secondary">ดูวัตถุดิบในตู้เย็น</a>
             <a class="btn btn-outline-dark" href="{{ route('ref.edit',$item->id)}}">แก้ไขตู้เย็น</a>
+
+
+
+
+
+
+
+
             @csrf
             @method('DELETE')
-
-
 
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
                     ลบตู้เย็น
                 </button>
 
-                <!-- Modal -->
+                <!-- Modal ลบตู้เย็น-->
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                     <div class="modal-content">

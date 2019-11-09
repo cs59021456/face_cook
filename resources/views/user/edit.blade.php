@@ -34,10 +34,11 @@
 
           <form action="{{'/user/update'}}" method="POST" enctype="multipart/form-data">
             @csrf
-              <div class="form-row">
+              <!--<div class="form-row">
                   <div class="form-group col-md">
                     <input type="file" class="form-control-file" name="avatar" id="avatarFile" aria-describedby="fileHelp">
-                  </div><br>
+                  </div><br>-->
+
 
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Username</label>

@@ -45,7 +45,7 @@ class RefController extends Controller
         $ref->intro =  $request->get('intro');
         $ref->save();
 
-        return redirect()->route('ref.index')
+        return redirect()->back()
                         ->with('success','created successfully.');
     }
 
@@ -93,7 +93,7 @@ class RefController extends Controller
         $ref->intro =  $request->get('intro');
         $ref->save();
 
-        return redirect()->route('home')
+        return redirect()-back()
                         ->with('success','Updated successfully');
     }
 

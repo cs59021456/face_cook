@@ -44,7 +44,7 @@
 
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
               <button type="submit" class="btn btn-primary">บันทึก</button>
-              <a class="btn btn-primary" href="{{ route('home') }}">ย้อนกลับ</a>
+              <a class="btn btn-primary" href="/refme/{{Auth::user()->id}}">ย้อนกลับ</a>
             </div>
 
 

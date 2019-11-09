@@ -17,12 +17,6 @@
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
-
-                            <div class="col-md-6">
-                              <input type="file" class="form-control-file" name="avatar" id="avatarFile" aria-describedby="fileHelp">
-                            </div><br>
-
-
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Username') }}</label>
 

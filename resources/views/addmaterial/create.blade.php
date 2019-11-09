@@ -62,8 +62,8 @@
                         </div>
 
                         <div class="form-group">
-                            <strong>ชื่อตู้เย็น:</strong>
-                            <input type="text" class="form-control" id="inputEmail4" value="{{$ref->name_ref}}" name="name_ref">
+                                <strong>ชื่อตู้เย็น:</strong>
+                                 <input type="text" class="form-control" id="inputEmail4" value="{{$ref->name_ref}}" name="name_ref">
                         </div>
                     </div>
 
@@ -206,7 +206,7 @@
                         <!-------ปุ่มบันทึกกับปุ่มกลับหน้าโฮม----->
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                             <button type="submit" class="btn btn-primary">บันทึก</button>
-                            <a class="btn btn-primary" href="{{ route('home') }}">ย้อนกลับ</a>
+                            <a class="btn btn-primary"href="/refme/{{Auth::user()->id}}">ย้อนกลับ</a>
                         </div>
                     </div>
                 </form>

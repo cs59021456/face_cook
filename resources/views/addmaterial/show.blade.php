@@ -22,6 +22,11 @@
                     <button type="submit" class="btn btn-light">แนะนำโดย FaceCook 💡</button>
                 </div>
 
+
+                
+
+
+
 <div class="container">
     <div class="row">
         <div class="col-sm">
@@ -161,7 +166,7 @@
 
                         </div>
                         <div class="col-sm">
-                            <a class="btn btn-primary" href="{{ route('home') }}">ย้อนกลับ</a>
+                            <a class="btn btn-primary" href="/refme/{{Auth::user()->id}}">ย้อนกลับ</a>
                         </div>
                     </div>
                 </div>

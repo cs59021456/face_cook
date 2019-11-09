@@ -44,6 +44,7 @@ class AddmaterialController extends Controller
     {
         $request->validate([
             'id_ref' => 'required',
+            'name_ref' => 'required',
             'material' => 'required',
             'amount' => 'required',
             'unit' => 'required',
@@ -53,7 +54,7 @@ class AddmaterialController extends Controller
         $request->user_id = auth::user()->id;
         Addmaterial::create($request->all());
 
-        return redirect()->route('home')
+        return redirect()->back()
                         ->with('success','created successfully.');
     }
 
