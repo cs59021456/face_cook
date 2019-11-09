@@ -53,6 +53,13 @@
     @csrf
 
     <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>ชื่อตู้เย็น:</strong>
+                <input class="form-control" style="height:150px" name="name_ref" placeholder="ชื่อตู้เย็น">
+            </div>
+        </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>รายละเอียดของตู้เย็น:</strong>
             <input class="form-control" style="height:150px" name="intro" placeholder="รายละเอียด">

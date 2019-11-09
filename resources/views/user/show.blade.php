@@ -55,10 +55,6 @@
         <a class="btn btn-primary" href="/edituser">แก้ไข</a>
             <a class="btn btn-primary" href="{{ route('home') }}">ย้อนกลับ</a>
 
-
-
-
-
         </div>
       </div>
     </div>

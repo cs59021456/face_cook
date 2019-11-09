@@ -6,6 +6,7 @@ use App\Addmaterial;
 use Illuminate\Http\Request;
 use App\menu;
 use auth;
+use App\Ref;
 
 class AddmaterialController extends Controller
 {
@@ -141,8 +142,8 @@ class AddmaterialController extends Controller
 
     public function add($id)
     {
-        $item = $id;
-        return view('addmaterial.create',compact('item'));
+        $ref = Ref::find($id);
+        return view('addmaterial.create',compact('ref'));
     }
 
 

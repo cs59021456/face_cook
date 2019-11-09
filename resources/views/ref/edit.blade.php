@@ -21,14 +21,21 @@
         </div>
     @endif
 
-    <form action="{{ route('ref.update',$refs->id) }}" >
+    <form action='/ref/update/{{$refs->id}}' method="POST" >
         @csrf
-        @method('PUT')
+
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>ชื่อตู้เย็น:</strong>
+                    <input type="text" class="form-control" id="inputEmail4" value="{{$refs->name_ref}}" name="name_ref">
+                </div>
+            </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>รายละเอียดตู้เย็น:</strong>
-                    <textarea class="form-control" style="height:150px" name="intro" placeholder="{{$refs->intro}}"></textarea>
+                    <input type="text" class="form-control" id="inputEmail4" value="{{$refs->intro}}" name="intro">
                 </div>
             </div>
 

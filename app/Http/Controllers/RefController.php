@@ -41,6 +41,7 @@ class RefController extends Controller
     {
         $ref = new Ref;
         $ref->user_id = auth::user()->id;
+        $ref->name_ref =  $request->get('name_ref');
         $ref->intro =  $request->get('intro');
         $ref->save();
 
@@ -79,16 +80,20 @@ class RefController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$item)
-    {
+    public function update(Request $request,$id)
+    {error_log($id);
         $request->validate([
 
+            'name_ref' => 'required',
             'intro' => 'required',
         ]);
 
+        $ref = Ref::find($id);
+        $ref->name_ref =  $request->get('name_ref');
+        $ref->intro =  $request->get('intro');
+        $ref->save();
 
-        $item->update($request->all());
-        return redirect()->route('ref.index')
+        return redirect()->route('home')
                         ->with('success','Updated successfully');
     }
 

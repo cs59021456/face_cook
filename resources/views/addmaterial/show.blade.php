@@ -9,6 +9,18 @@
 @section('content')
 
 
+<div class="form-group has-search">
+        <span class="fa fa-search form-control-feedback"></span>
+        <input type="text" class="form-control " placeholder="🔎 กรอกวัตถุดิบของคุณเพื่อค้นหาสูตรอาหาร" name="search"><br>
+        <!-- //แนะนำด้วย FaceCook💡 -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+
+                </div>
+                <div class="col-sm">
+                    <button type="submit" class="btn btn-light">แนะนำโดย FaceCook 💡</button>
+                </div>
 
 <div class="container">
     <div class="row">
@@ -97,14 +109,39 @@
 
 
                                             <form action="{{ route('addmaterial.destroy',$addmaterial->id) }}" method="POST">
-
-
                                                 <a class="btn btn-primary" href="{{ route('addmaterial.edit',$addmaterial->id) }}">แก้ไข</a>
+
+
 
                                                 @csrf
                                                 @method('DELETE')
 
-                                                <button type="submit" class="btn btn-danger">ลบ</button>
+                                                 <!-- Button trigger modal -->
+            <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
+                    ลบวัตถุดิบ
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">ลบวัตถุดิบ</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                        คุณต้องการลบวัตถุดิบนี้จริงหรือไม่?
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+                        <button type="submit" class="btn btn-outline-danger">ลบ</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
                                             </form>
 
 
@@ -116,6 +153,8 @@
                     </div>
                 </div>
                 @endforeach
+
+
                 <div class="container">
                     <div class="row">
                         <div class="col-sm">

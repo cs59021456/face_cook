@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
-use auth;
+use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -68,6 +68,24 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+        $request = request();
+
+        $request->validate([
+            'avatar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'name' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
+        ]);
+
+
+            $user = User::find(Auth::user()->id);
+            $avatarName = $user->id.'_avatar'.time().'.'.request()->avatar->getClientOriginalExtension();
+            $request->avatar->storeAs('avatars',$avatarName);
+
+
+
+
         return User::create([
             'avatar' => $data['avatar'],
             'name' => $data['name'],
@@ -76,5 +94,7 @@ class RegisterController extends Controller
             'last_name' => $data['last_name'],
             'password' => Hash::make($data['password']),
         ]);
+
     }
+
 }

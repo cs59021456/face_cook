@@ -50,6 +50,8 @@ Route::get('/showprofile', function () {
 
 Route::get('/refme/{id}','RefController@show');
 
+Route::post('/ref/update/{id}', 'RefController@update');
+
 
 
 Route::get('/Addmater/show/{id}','AddmaterialController@show');

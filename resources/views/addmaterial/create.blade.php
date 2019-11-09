@@ -37,27 +37,35 @@
                         </div>
                     </div>
                 </div>
-                @if ($errors->any())
-                <div class="alert alert-danger">
-                    <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-                @endif
+
 
                 <form action="{{ route('addmaterial.store') }}" method="POST">
                     @csrf
+
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
 
                     <div class="center">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>ตู้เย็น:</strong>
-                                <input type="text" name="id_ref" class="form-control" value="{{$item}}">
+                                <input type="text" name="id_ref" class="form-control" value="{{$ref->id}}">
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <strong>ชื่อตู้เย็น:</strong>
+                            <input type="text" class="form-control" id="inputEmail4" value="{{$ref->name_ref}}" name="name_ref">
+                        </div>
+                    </div>
 
                         <div class="container">
                             <div class="row">
@@ -72,7 +80,7 @@
 
 
                         <div class="col-xs-12 col-sm-12 col-md-12">
-                            <select class="custom-select" name="material">
+                            <select class="custom-select" name="material" >
                                 <option selected>ชื่อวัตถุดิบ</option>
                                 <option value="ไก่">ไก่</option>
                                 <option value="ปลา">ปลา</option>
@@ -166,29 +174,7 @@
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-12">
-                            <select class="custom-select" name="amount">
-                                <option selected>ปริมาณวัตถุดิบ</option>
-                                <option value="0">0</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="100">100</option>
-                                <option value="200">200</option>
-                                <option value="300">300</option>
-                                <option value="400">400</option>
-                                <option value="500">500</option>
-                                <option value="600">600</option>
-                                <option value="700">700</option>
-                                <option value="800">800</option>
-                                <option value="900">900</option>
-                            </select>
+                                <input name="amount" class="form-control" type="text" placeholder="ปริมาณวัตถุดิบ">
                         </div>
 
                         <div class="container">
