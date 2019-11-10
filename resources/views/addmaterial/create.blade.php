@@ -203,6 +203,59 @@
                         </div>
 
 
+
+                        <div class="container box">
+
+                                <div class="form-group">
+                                 <select name="type_material" id="type_material" class="form-control input-lg dynamic" >
+                                  <option value="">เลือกประเภทวัตถุดิบ</option>
+                                  @foreach($type_material as $type_material)
+                                  <option value="{{ $country->country}}">{{ $country->country }}</option>
+                                  @endforeach
+                                 </select>
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                 <select name="state" id="state" class="form-control input-lg dynamic" data-dependent="city">
+                                  <option value="">Select State</option>
+                                 </select>
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                 <select name="city" id="city" class="form-control input-lg">
+                                  <option value="">Select City</option>
+                                 </select>
+                                </div>
+                                {{ csrf_field() }}
+                                <br />
+                                <br />
+                               </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         <!-------ปุ่มบันทึกกับปุ่มกลับหน้าโฮม----->
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                             <button type="submit" class="btn btn-primary">บันทึก</button>

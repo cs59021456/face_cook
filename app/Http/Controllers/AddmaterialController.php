@@ -46,6 +46,7 @@ class AddmaterialController extends Controller
             'id_ref' => 'required',
             'name_ref' => 'required',
             'material' => 'required',
+            'type_material' => 'required',
             'amount' => 'required',
             'unit' => 'required',
 

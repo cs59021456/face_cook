@@ -18,7 +18,7 @@
         <div class="card-header">
           โปรไฟล์ผู้ใช้
         </div>
-        
+
         <!--<div class="card-body">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
@@ -31,6 +31,14 @@
                     {{ Auth::user()->name}}
                 </div>
             </div>-->
+
+            <div class="center">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                  <div class="form-group">
+                    <strong>Username:</strong>
+                    {{ Auth::user()->name}}
+                </div>
+            </div>
 
 
     <div class="center">

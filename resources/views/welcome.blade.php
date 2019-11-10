@@ -100,7 +100,7 @@
                                     </marquee>
                                     @if (Route::has('login'))
                                         @auth
-                                        <button type="button" class="btn btn-warning"> <a  href="{{ url('/home') }}" class="text-danger">หน้าแรก</a></button>
+                                        <button type="button" class="btn btn-warning"> <a  href="{{ url('/home') }}" class="text-danger">หน้าหลัก</a></button>
                                                 @else
                                                 <button type="button" class="btn btn-warning"> <a href="{{ route('login') }}" class="text-danger">เข้าสู่ระบบ</a></button>
 

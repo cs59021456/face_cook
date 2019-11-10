@@ -34,11 +34,6 @@
 
           <form action="{{'/user/update'}}" method="POST" enctype="multipart/form-data">
             @csrf
-              <!--<div class="form-row">
-                  <div class="form-group col-md">
-                    <input type="file" class="form-control-file" name="avatar" id="avatarFile" aria-describedby="fileHelp">
-                  </div><br>-->
-
 
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Username</label>
@@ -65,6 +60,7 @@
                 </div>
                 <div class="col-sm">
                   <button type="submit" class="btn btn-primary">บันทึก</button>
+                  <a class="btn btn-primary" href="/showprofile">ย้อนกลับ</a>
                 </div>
                 <div class="col-sm">
 

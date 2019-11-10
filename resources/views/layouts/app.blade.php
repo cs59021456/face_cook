@@ -26,8 +26,6 @@
 
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="https://sv1.picz.in.th/images/2019/11/05/gxFlDt.gif" class="card-img" alt="...">
-
-
                 </a>
 
 
@@ -57,6 +55,7 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav mr-auto">
                                 <div class="btn-group" role="group" aria-label="Basic example">
+                                    <button type="button" class="btn btn-warning"><a class="text-dark" href="{{ url('/') }}">หน้าแรก</a></button>
                                     <button type="button" class="btn btn-warning"><a class="text-dark" href="{{ route('home') }}">หน้าหลัก</a></button>
                                     <button type="button" class="btn btn-warning"> <a class="text-dark"  href="/refme/{{Auth::user()->id}}">ตู้เย็นของฉัน<span class="sr-only">(current)</span></a></button>
                                     <button type="button" class="btn btn-warning"> <a class="text-dark" href="{{route('ref.create')}}">เพิ่มตู้เย็น<span class="sr-only">(current)</span></a></button>

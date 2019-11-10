@@ -45,7 +45,7 @@
 
                                 </div>
                                 <div class="col-sm">
-                                    <button type="submit" class="btn btn-light">แนะนำโดย FaceCook 💡</button>
+                                    <button type="submit" class="btn btn-light">ค้นหาโดย FaceCook 💡</button>
                                 </div>
                                 <div class="col-sm">
 

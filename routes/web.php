@@ -27,6 +27,8 @@ Route::resource('addmaterial','AddmaterialController');
 
 Route::resource('user','UserController');
 
+Route::resource('ref', 'RefController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -37,7 +39,7 @@ Route::post('/user/update', 'UserController@update');
 
 Route::get('menu', 'AddmaterialController@menu');
 
-Route::resource('ref', 'RefController');
+
 
 
 Route::get('/edituser', function () {
@@ -49,6 +51,7 @@ Route::get('/showprofile', function () {
 });
 
 Route::get('/refme/{id}','RefController@show');
+
 
 Route::post('/ref/update/{id}', 'RefController@update');
 
