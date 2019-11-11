@@ -67,6 +67,34 @@
                         </div>
                     </div>
 
+
+
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                <strong>ประเภทวัตถุดิบ:</strong>
+                            </div>
+                            <div class="col-sm">
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <select class="custom-select" name="type_material">
+                            <option selected>ประเภทวัตถุดิบ</option>
+                            <option value="เนื้อสัตว์">เนื้อสัตว์</option>
+                            <option value="ผัก">ผัก</option>
+
+                        </select>
+                    </div>
+
+
+
+
+
                         <div class="container">
                             <div class="row">
                                 <div class="col-sm">
@@ -165,21 +193,6 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-sm">
-                                    <strong>ปริมาณวัตถุดิบ:</strong>
-                                </div>
-                                <div class="col-sm">
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-xs-12 col-sm-12 col-md-12">
-                                <input name="amount" class="form-control" type="text" placeholder="ปริมาณวัตถุดิบ">
-                        </div>
-
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-sm">
                                     <strong>หน่วยวัตถุดิบ:</strong>
                                 </div>
                                 <div class="col-sm">
@@ -204,52 +217,21 @@
 
 
 
-                        <div class="container box">
 
-                                <div class="form-group">
-                                 <select name="type_material" id="type_material" class="form-control input-lg dynamic" >
-                                  <option value="">เลือกประเภทวัตถุดิบ</option>
-                                  @foreach($type_material as $type_material)
-                                  <option value="{{ $country->country}}">{{ $country->country }}</option>
-                                  @endforeach
-                                 </select>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <strong>ปริมาณวัตถุดิบ:</strong>
                                 </div>
-                                <br />
-                                <div class="form-group">
-                                 <select name="state" id="state" class="form-control input-lg dynamic" data-dependent="city">
-                                  <option value="">Select State</option>
-                                 </select>
+                                <div class="col-sm">
+
                                 </div>
-                                <br />
-                                <div class="form-group">
-                                 <select name="city" id="city" class="form-control input-lg">
-                                  <option value="">Select City</option>
-                                 </select>
-                                </div>
-                                {{ csrf_field() }}
-                                <br />
-                                <br />
-                               </div>
+                            </div>
+                        </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                <input name="amount" class="form-control" type="text" placeholder="ปริมาณวัตถุดิบ">
+                        </div>
 
 
 

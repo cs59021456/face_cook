@@ -31,7 +31,6 @@
 
 
 
-
             @csrf
             @method('DELETE')
 
@@ -60,6 +59,23 @@
                     </div>
                     </div>
                 </div>
+
+
+
+                <div class="form-group has-search">
+                    <span class="fa fa-search form-control-feedback"></span>
+                    <input type="text" class="form-control " placeholder="🔎 กรอกวัตถุดิบของคุณเพื่อค้นหาสูตรอาหาร" name="search"><br>
+                    <!-- //แนะนำด้วย FaceCook💡 -->
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+
+                            </div>
+                            <div class="col-sm">
+                                <button type="submit" class="btn btn-light">แนะนำโดย FaceCook 💡</button>
+                            </div>
+
+
 
           </form>
 

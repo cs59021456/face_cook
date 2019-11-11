@@ -4,9 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Addmaterial extends Model
+class type_material extends Model
 {
     protected $fillable = [
-        'id_ref', 'material','amount','unit','type_material',
+        'id','name',
+
     ];
 }

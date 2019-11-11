@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 use App\menu;
 use auth;
 use App\Ref;
+use App\type_material;
+
+use DB;
+
+
 
 class AddmaterialController extends Controller
 {
@@ -40,7 +45,7 @@ class AddmaterialController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,type_material $type_material)
     {
         $request->validate([
             'id_ref' => 'required',
@@ -54,6 +59,8 @@ class AddmaterialController extends Controller
         ]);
         $request->user_id = auth::user()->id;
         Addmaterial::create($request->all());
+
+
 
         return redirect()->back()
                         ->with('success','created successfully.');
@@ -147,6 +154,24 @@ class AddmaterialController extends Controller
         $ref = Ref::find($id);
         return view('addmaterial.create',compact('ref'));
     }
+
+    public fetch(Request $request){
+
+        $id=$request->get('select');
+        $result=array();
+        $query=DB::table('addmaterial')
+        ->join('materials','menus.id','=','materials.menus_id')
+        ->select('material')
+        ->where('menu.id',$id)
+        ->groupBy('material')
+        ->get();
+
+        foreach ($query as $addmaterial){
+            
+        }
+    }
+
+
 
 
 }

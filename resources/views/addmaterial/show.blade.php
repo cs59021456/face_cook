@@ -23,7 +23,7 @@
                 </div>
 
 
-                
+
 
 
 
@@ -69,6 +69,14 @@
                                             <div class="form-group">
                                                 <strong>ตู้เย็น:</strong>
                                                 {{ $addmaterial->id_ref}}
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                            <div class="form-group">
+                                                <strong>ประเภทวัตถุดิบ:</strong>
+                                                {{ $addmaterial->type_material }}
                                             </div>
                                         </div>
 

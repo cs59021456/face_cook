@@ -70,3 +70,4 @@ Route::get('/Addmater/delete/{id}','AddmaterialController@destroy');
 
 
 
+
