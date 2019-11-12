@@ -26,27 +26,28 @@
 
 <table class="table table-bordered bg-white">
     <tr class="table-danger " >
-        <th> ชื่อเมนูอาหาร</th>
+        <th>ชื่อเมนูอาหาร</th>
         <th>ส่วนผสม</th>
         <th>ขั้นตอนการทำ</th>
-        <th>เปอร์เซ็นที่จะทำได้</th>
+      <!--<th>เปอร์เซ็นที่จะทำได้{{$result}}</th>-->
     </tr>
-    @foreach ($data as $data)
-
+    @foreach ($data as $data1)
     <tr>
-        <td class="table-info">{{ $data ->name}}</td>
-        <td>{{ $data ->menu_ing}}</td>
-        <td>{{ $data->formula}}</td>
-        <td class="table-success">{{ $data->can_do}}</td>
+        <td class="table-info">{{ $data1 ->name}}</td>
+        <td>{{ $data1 ->menu_ing}}</td>
+        <td>{{ $data1->formula}}</td>
 
 
     </tr>
     @endforeach
 </table>
+<div class="alert alert-success" role="alert">
+    เปอร์เซ็นที่จะทำได้ {{$result}} %
+  </div>
 
 <!-- //ปุ่มกลับ -->
 <div class="pull-right">
-    <a class="btn btn-primary" href="{{ route('home') }}">ย้อนกลับ</a>
+    <a class="btn btn-primary" href="/search_rw">ย้อนกลับ</a>
 </div>
 
 @endsection

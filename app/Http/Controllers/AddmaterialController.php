@@ -24,7 +24,7 @@ class AddmaterialController extends Controller
     {
         $data = Addmaterial::latest()->paginate(5);
 
-        return view('addmaterial.index',compact('data'))
+        return view('addmaterial.index', compact('data'))
             ->with('addmaterials', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -45,7 +45,7 @@ class AddmaterialController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,type_material $type_material)
+    public function store(Request $request, type_material $type_material)
     {
         $request->validate([
             'id_ref' => 'required',
@@ -63,7 +63,7 @@ class AddmaterialController extends Controller
 
 
         return redirect()->back()
-                        ->with('success','created successfully.');
+            ->with('success', 'created successfully.');
     }
 
     /**
@@ -74,8 +74,8 @@ class AddmaterialController extends Controller
      */
     public function show($id)
     {
-        $addmaterials = Addmaterial::where('id_ref',$id)->get();
-        return view('addmaterial.show',compact('addmaterials'));
+        $addmaterials = Addmaterial::where('id_ref', $id)->get();
+        return view('addmaterial.show', compact('addmaterials'));
     }
 
     /**
@@ -86,9 +86,9 @@ class AddmaterialController extends Controller
      */
     public function edit($id)
     {
-        $addmaterial=Addmaterial::where('id',$id)->first();
+        $addmaterial = Addmaterial::where('id', $id)->first();
 
-        return view('addmaterial.edit',compact('addmaterial'));
+        return view('addmaterial.edit', compact('addmaterial'));
     }
 
     /**
@@ -111,8 +111,7 @@ class AddmaterialController extends Controller
         $addmaterial->update($request->all());
 
         return redirect()->route('home')
-                        ->with('success','Updated successfully')
-                        ;
+            ->with('success', 'Updated successfully');
     }
 
     /**
@@ -123,55 +122,56 @@ class AddmaterialController extends Controller
      */
     public function destroy($id)
     {
-        $addmaterial=Addmaterial::where('id',$id);
+        $addmaterial = Addmaterial::where('id', $id);
         $addmaterial->delete();
 
         return redirect()->back()
-                        ->with('success','Deleted successfully');
+            ->with('success', 'Deleted successfully');
     }
 
     public function search(Request $request)
     {
-       $category = $request->input('search');
+        $category = $request->input('search');
         error_log($category);
-         $data = Addmaterial::where('material', 'LIKE', '%' . $category . '%')->get();
-       return view('addmaterial.index', compact('data'));
+        $data = Addmaterial::where('material', 'LIKE', '%' . $category . '%')->get();
+        return view('addmaterial.index', compact('data'));
 
-       //->orwhere('intro_ref', 'LIKE', '%' . $category . '%')->
-       //orwhere('raw_material', 'LIKE', '%' . $category . '%')
+        //->orwhere('intro_ref', 'LIKE', '%' . $category . '%')->
+        //orwhere('raw_material', 'LIKE', '%' . $category . '%')
     }
 
     public function menu(Request $request)
     {
-       $category = $request->input('search');
-        error_log($category);
-         $data = menu::where('key_word', 'LIKE', '%' . $category . '%')->get();
-       return view('view', compact('data'));
+
+        if ($request->rw1 && $request->rw2 && $request->rw3 && $request->rw4 == NULL) {
+            return redirect()->back();
+        }
+        if ($request->rw1 != "") {
+            $cal1 = 25;
+        }else { $cal1=0; }
+        if ($request->rw2 != "") {
+            $cal2 = 25;
+        }else { $cal2=0; }
+        if ($request->rw3 != "") {
+            $cal3 = 25;
+        }else { $cal3=0; }
+        if ($request->rw4 != "") {
+            $cal4 = 25;
+        }else { $cal4=0; }
+        $result = $cal1+$cal2+$cal3+$cal4;
+
+        $data = menu::where('key_word', [$request->rw1, $request->rw2, $request->rw3, $request->rw4])
+            //  ->where('name',$request->rw2)
+            //  ->orwhere('key_word', 'LIKE', '%' . $request->rw3 . '%')
+            //  ->orwhere('key_word', 'LIKE', '%' . $request->rw4 . '%')
+            ->get();
+            // error_log($result);
+        return view('view', compact('data','result'));
     }
 
     public function add($id)
     {
         $ref = Ref::find($id);
-        return view('addmaterial.create',compact('ref'));
+        return view('addmaterial.create', compact('ref'));
     }
-
-    public fetch(Request $request){
-
-        $id=$request->get('select');
-        $result=array();
-        $query=DB::table('addmaterial')
-        ->join('materials','menus.id','=','materials.menus_id')
-        ->select('material')
-        ->where('menu.id',$id)
-        ->groupBy('material')
-        ->get();
-
-        foreach ($query as $addmaterial){
-            
-        }
-    }
-
-
-
-
 }

@@ -16,8 +16,6 @@
 
             <!-- ช่องค้นหาสูตรอาหาร -->
 
-            <form action="menu">
-
 
                 <div class="main">
                 <div class="container">
@@ -33,27 +31,11 @@
                                 </div>
                             </div>
 
+                            <a class="btn btn-success" href="/search_rw">ค้นหาจากวัตถุดิบ</a>
+                            <a class="btn btn-success" href="/refme/{{Auth::user()->id}}">ค้นหาจากตู้เย็น</a>
 
-                    <!-- Actual search box -->
-                    <div class="form-group has-search">
-                        <span class="fa fa-search form-control-feedback"></span>
-                        <input type="text" class="form-control " placeholder="🔎 กรอกวัตถุดิบของคุณเพื่อค้นหาสูตรอาหาร" name="search"><br>
-                        <!-- //แนะนำด้วย FaceCook💡 -->
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-sm">
 
-                                </div>
-                                <div class="col-sm">
-                                    <button type="submit" class="btn btn-light">ค้นหาโดย FaceCook 💡</button>
-                                </div>
-                                <div class="col-sm">
 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            </form>
         </div>
     </div>
 

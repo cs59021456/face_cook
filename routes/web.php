@@ -64,7 +64,13 @@ Route::get('/Addmater/create/{id}','AddmaterialController@add');
 Route::get('/Addmater/delete/{id}','AddmaterialController@destroy');
 
 
+Route::get('/search_rw', function () {
+    return view('search_rw');
+});
 
+Route::get('/search_ref', function () {
+    return view('search_ref');
+});
 
 
 

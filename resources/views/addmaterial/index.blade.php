@@ -79,16 +79,40 @@
                             <td>{{ $data->created_at}}</td>
                             <td>{{ $data->updated_at}}</td>
                     <td>
-                        <form action="{{ route('addmaterial.destroy',$data->id) }}" method="POST">
+                        <form action="{{ route('addmaterial.destroy',$addmaterial->id) }}" method="POST">
+                            <a class="btn btn-primary" href="{{ route('addmaterial.edit',$addmaterial->id) }}">แก้ไข</a>
 
-                            <a class="btn btn-info" href="{{ route('addmaterial.show',$data->id_ref) }}">Show</a>
 
-                            <a class="btn btn-primary" href="{{ route('addmaterial.edit',$data->id) }}">Edit</a>
 
                             @csrf
                             @method('DELETE')
 
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                             <!-- Button trigger modal -->
+<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
+ลบวัตถุดิบ
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+    <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">ลบวัตถุดิบ</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    <div class="modal-body">
+    คุณต้องการลบวัตถุดิบนี้จริงหรือไม่?
+    </div>
+    <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+    <button type="submit" class="btn btn-outline-danger">ลบ</button>
+    </div>
+</div>
+</div>
+</div>
+
                         </form>
                     </td>
                     </tr>
