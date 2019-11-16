@@ -35,10 +35,11 @@
                     <!-- Actual search box -->
                     <div class="form-group has-search">
                         <span class="fa fa-search form-control-feedback"></span>
-                        <input type="text" class="form-control " placeholder=" " name="rw1"><br>
-                        <input type="text" class="form-control " placeholder=" " name="rw2"><br>
-                        <input type="text" class="form-control " placeholder=" " name="rw3"><br>
-                        <input type="text" class="form-control " placeholder=" " name="rw4"><br>
+                        <input type="text" class="form-control " placeholder="กรอกวัตถุดิบของคุณ" name="rw1"><br>
+                        <input type="text" class="form-control " placeholder="กรอกวัตถุดิบของคุณ" name="rw2"><br>
+                        <input type="text" class="form-control " placeholder="กรอกวัตถุดิบของคุณ" name="rw3"><br>
+                        <input type="text" class="form-control " placeholder="กรอกวัตถุดิบของคุณ" name="rw4"><br>
+
 
 
                         <!-- //แนะนำด้วย FaceCook💡 -->
@@ -48,7 +49,7 @@
 
                                 </div>
                                 <div class="col-sm">
-                                    <button type="submit" class="btn btn-light" >ค้นหาจากวัตถุดิบ</button>
+                                    <button type="submit" class="btn btn-success" >ค้นหาสูตรอาหารจากวัตถุดิบ</button>
                                 </div>
                                 <div class="col-sm">
 

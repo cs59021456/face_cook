@@ -35,23 +35,28 @@
           <form action="{{'/user/update'}}" method="POST" enctype="multipart/form-data">
             @csrf
 
-                <div class="form-group col-md-6">
+            <div class="row">
+                <div class="col">
+
+                </div>
+                <div class="col">
                     <label for="inputEmail4">Username</label>
                     <input type="text" class="form-control" id="inputEmail4" value="{{Auth::user()->name}}" name="name">
-                </div>
 
-
-                <div class="form-group col-md-6">
                     <label for="inputEmail4">ชื่อจริง</label>
                     <input type="text" class="form-control" id="inputEmail4" value="{{Auth::user()->first_name}}" name="first_name">
-                </div>
 
-                <div class="form-group col-md-6">
                     <label for="inputPassword4">นามสกุล</label>
                     <input type="text" class="form-control" id="inputPassword4" value="{{Auth::user()->last_name}}" name="last_name">
-                </div>
 
-            </div>
+
+                </div>
+                <div class="col">
+                 
+                </div>
+              </div>
+
+
 
             <div class="container">
               <div class="row">

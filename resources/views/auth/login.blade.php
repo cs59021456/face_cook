@@ -20,15 +20,15 @@
                           {{ session()->get('login_error') }}
                         </div>
                       @endif
-                      <div class="form-group{{ $errors->has('identity') ? ' has-error' : '' }}">
-                        <label for="identity" class="col-md-4 control-label">Email or Username</label>
+                      <div class="form-group row{{ $errors->has('identity') ? ' has-error' : '' }}">
+                        <label for="identity" class="col-md-4 col-form-label text-md-right">ชื่อผู้ใช้</label>
 
                         <div class="col-md-6">
                           <input id="identity" type="identity" class="form-control" name="identity"
                                  value="{{ old('identity') }}" autofocus>
 
                           @if ($errors->has('identity'))
-                            <span class="help-block">
+                            <span class="help-block text-danger">
                                                 <strong>{{ $errors->first('identity') }}</strong>
                                             </span>
                           @endif
@@ -36,22 +36,22 @@
                       </div>
 
 
-                      
+
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('รหัสผ่าน') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password"  autocomplete="current-password">
 
                                 @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                    <span class="invalid-feedback text-danger" role="alert" >
+                                        <strong>{{ "กรุณากรอกรหัสผ่านให้ถูกต้อง" }}</strong>
                                     </span>
                                 @enderror
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -61,7 +61,7 @@
                                     </label>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
@@ -69,11 +69,11 @@
                                     {{ __('เข้าสู่ระบบ') }}
                                 </button>
 
-                                @if (Route::has('password.request'))
+                                {{-- @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('ลืมรหัสผ่าน?') }}
                                     </a>
-                                @endif
+                                @endif --}}
                             </div>
                         </div>
                     </form>

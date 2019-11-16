@@ -93,8 +93,8 @@ class RefController extends Controller
         $ref->intro =  $request->get('intro');
         $ref->save();
 
-        return redirect()-back()
-                        ->with('success','Updated successfully');
+        return redirect()-back();
+
     }
 
     /**

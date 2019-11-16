@@ -31,8 +31,24 @@
                                 </div>
                             </div>
 
-                            <a class="btn btn-success" href="/search_rw">ค้นหาจากวัตถุดิบ</a>
-                            <a class="btn btn-success" href="/refme/{{Auth::user()->id}}">ค้นหาจากตู้เย็น</a>
+                            <div class="container">
+
+                                    <div class="row justify-content-center">
+                                            <div class="col-4">
+                                                    <a class="btn btn-info" href="/search_rw">ค้นหาสูตรอาหารจากวัตถุดิบ</a>
+                                            </div>
+
+
+                                            <div class="col-4">
+                                                    <a class="btn btn-info" href="/refme/{{Auth::user()->id}}">ค้นหาสูตรอาหารจากตู้เย็น</a>
+                                            </div>
+                                          </div>
+
+
+
+
+
+
 
 
 

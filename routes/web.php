@@ -39,6 +39,9 @@ Route::post('/user/update', 'UserController@update');
 
 Route::get('menu', 'AddmaterialController@menu');
 
+Route::get('/searchmenu/{id}', 'AddmaterialController@searchmenu');
+
+
 
 
 
@@ -63,6 +66,8 @@ Route::get('/Addmater/create/{id}','AddmaterialController@add');
 
 Route::get('/Addmater/delete/{id}','AddmaterialController@destroy');
 
+Route::get('/search_ref/{id}','AddmaterialController@searchref');
+
 
 Route::get('/search_rw', function () {
     return view('search_rw');
@@ -70,6 +75,10 @@ Route::get('/search_rw', function () {
 
 Route::get('/search_ref', function () {
     return view('search_ref');
+});
+
+Route::get('/view_ref', function () {
+    return view('view_ref');
 });
 
 

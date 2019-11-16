@@ -14,7 +14,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm">
-      <div class="card border-secondary">
+      <div class="card border-danger">
 
       <div class="row">
     <div class="col-lg-12 margin-tb">
@@ -70,7 +70,7 @@
 
 
     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-        <button type="submit" class="btn btn-primary">บันทึก</button>
+        <button type="submit" class="btn btn-success">บันทึก</button>
 
         <a class="btn btn-primary" href="{{ route('home') }}">ย้อนกลับ</a>
 

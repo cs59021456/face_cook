@@ -21,12 +21,14 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-danger shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-danger shadow-sm" >
             <div class="container">
 
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="https://sv1.picz.in.th/images/2019/11/05/gxFlDt.gif" class="card-img" alt="...">
-                </a>
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        <img src="https://sv1.picz.in.th/images/2019/11/13/gswiB8.png" class="card-img" alt="...">
+
+
+                    </a>
 
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -43,10 +45,12 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                        <button type="button" class="btn btn-warning"> <a href="{{ route('login') }}" class="text-danger">เข้าสู่ระบบ</a> </button>
+                        <li class="nav-item">
+                                <a  class="nav-link" href="{{ route('login') }}" >เข้าสู่ระบบ</a>
+                            </li>
                             @if (Route::has('register'))
-                                <li class="nav-item">
-                                     <button type="button" class="btn btn-info"> <a href="{{ route('register') }}" class="text-dark">ลงทะเบียน</a> </button>
+                            <li class="nav-item">
+                                    <a  class="nav-link" href="{{ route('register') }}" >ลงทะเบียน</a>
                                 </li>
                             @endif
 
@@ -55,20 +59,20 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav mr-auto">
                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-warning"><a class="text-dark" href="{{ url('/') }}">หน้าแรก</a></button>
-                                    <button type="button" class="btn btn-warning"><a class="text-dark" href="{{ route('home') }}">หน้าหลัก</a></button>
-                                    <button type="button" class="btn btn-warning"> <a class="text-dark"  href="/refme/{{Auth::user()->id}}">ตู้เย็นของฉัน<span class="sr-only">(current)</span></a></button>
-                                    <button type="button" class="btn btn-warning"> <a class="text-dark" href="{{route('ref.create')}}">เพิ่มตู้เย็น<span class="sr-only">(current)</span></a></button>
+                                    <button type="button" class="btn btn-link"><a class="text-light" href="{{ url('/') }}">หน้าแรก</a></button>
+                                    <button type="button" class="btn btn-link"><a class="text-light" href="{{ route('home') }}">หน้าหลัก</a></button>
+                                    <button type="button" class="btn btn-link"><a class="text-light"  href="/refme/{{Auth::user()->id}}">ตู้เย็นของฉัน<span class="sr-only">(current)</span></a></button>
+                                    <button type="button" class="btn btn-link"><a class="text-light" href="{{route('ref.create')}}">เพิ่มตู้เย็น<span class="sr-only">(current)</span></a></button>
 
 
 
 
                                     <!-- ชื่อของคนที่ล็อคอินเข้ามา กดdropdown แล้วมีฟังก์ชั่นอื่นๆ -->
-                                     <li class="nav-item dropdown bg-warning">
+                                     <li class="nav-item dropdown " >
 
 
                                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                            {{ Auth::user()->name }} <span class="caret"></span>
+                                            {{ Auth::user()->first_name}} <span class="caret"></span>
                                         </a>
 
 

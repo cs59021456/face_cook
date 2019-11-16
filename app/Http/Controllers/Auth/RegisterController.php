@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use auth;
+
 
 class RegisterController extends Controller
 {
@@ -69,25 +71,25 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-        $request = request();
+       
 
-        $request->validate([
-            'avatar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        $data->validate([
+            // 'avatar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'name' => 'required',
             'first_name' => 'required',
             'last_name' => 'required',
         ]);
 
 
-            $user = User::find(Auth::user()->id);
-            $avatarName = $user->id.'_avatar'.time().'.'.request()->avatar->getClientOriginalExtension();
-            $request->avatar->storeAs('avatars',$avatarName);
+            $user = New User;
+            // $avatarName = $user->id.'_avatar'.time().'.'.request()->avatar->getClientOriginalExtension();
+            // $request->avatar->storeAs('avatars',$avatarName);
 
 
 
 
         return User::create([
-            'avatar' => $data['avatar'],
+            // 'avatar' => $data['avatar'],
             'name' => $data['name'],
             'email' => $data['email'],
             'first_name' => $data['first_name'],

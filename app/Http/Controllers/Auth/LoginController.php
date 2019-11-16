@@ -58,7 +58,7 @@ class LoginController extends Controller
                 'password' => 'required|string',
             ],
             [
-                'identity.required' => 'Username or email is required',
+                'identity.required' => 'กรุณากรอกชื่อผู้ใช้ ',
                 'password.required' => 'Password is required',
             ]
         );

@@ -4,7 +4,7 @@
 <style>
     html,
     body {
-        background-image: url(https://marketplace.canva.com/MADZ_1nUdSM/1/thumbnail_large-1/canva-balanced-diet-food-background-MADZ_1nUdSM.jpg);
+        background-image: url(https://www.azamara.com/sites/default/files/heros/med-food-hero.jpg);
     }
 </style>
 
@@ -14,11 +14,49 @@
         <div class="col-md-8">
 
 
+            <!-- ช่องค้นหาสูตรอาหาร -->
 
+            <form action="/searchmenu/{{$id}}">
+
+
+                <div class="main">
+                <div class="container">
+                            <div class="row">
+                                <div class="col-sm">
+
+                                </div>
 
                                 <div class="col-sm">
-                                    <button type="submit" class="btn btn-light" >ค้นหาจากวัตถุดิบ</button>
+
                                 </div>
+                            </div>
+
+
+                    <!-- Actual search box -->
+                    <div class="form-group has-search">
+                        <span class="fa fa-search form-control-feedback"></span>
+                    <input type="text" class="form-control " placeholder="" name="rw1"><br>
+                   
+
+                        <!-- //แนะนำด้วย FaceCook💡 -->
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm">
+
+                                </div>
+                                <div class="col-sm">
+                                    <button type="submit" class="btn btn-success" >ค้นหาจากตู้เย็น</button>
+                                </div>
+                                <div class="col-sm">
+
+
+                    </div>
+
+
+                        <!-- //แนะนำด้วย FaceCook💡 -->
+
+                    </div>
+            </form>
 
 
         </div>
@@ -28,3 +66,4 @@
     </div>
 </div>
 @endsection
+
