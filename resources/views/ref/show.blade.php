@@ -37,12 +37,12 @@
                             @method('DELETE')
 
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
+                            <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal{{$item->id}}">
                                     ลบตู้เย็น
                                 </button>
 
                                 <!-- Modal ลบตู้เย็น-->
-                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="exampleModal{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">

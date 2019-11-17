@@ -140,8 +140,8 @@ class AddmaterialController extends Controller
 
         $addmaterial->update($request->all());
 
-        return redirect()->route('home')
-            ->with('success', 'Updated successfully');
+        $addmaterials = Addmaterial::where('id_ref',$addmaterial->id_ref)->get();
+        return view('addmaterial.show', compact('addmaterials'));
     }
 
     /**
@@ -152,7 +152,7 @@ class AddmaterialController extends Controller
      */
     public function destroy($id)
     {
-        $addmaterial = Addmaterial::where('id', $id);
+        $addmaterial = Addmaterial::find($id);
         $addmaterial->delete();
 
         return redirect()->back()
@@ -171,12 +171,19 @@ class AddmaterialController extends Controller
     }
 
     public function menu(Request $request)
-    {
+
+    {        $request->validate([
+
+        'rw1' => 'required',
+        'rw2' => 'required',
+        'rw3' => 'required',
+        'rw4' => 'required',
+    ]);
         //dd($request->rw1,$request->rw2,$request->rw3,$request->rw4);
 
-          if ($request->rw1 && $request->rw2 && $request->rw3 && $request->rw4 == NULL) {
-              return redirect()->back();
-         }
+        //   if ($request->rw1 && $request->rw2 && $request->rw3 && $request->rw4 == NULL) {
+        //       return redirect()->back();
+        //  }
         //    if ($request->rw1 != "") {
         //        $cal1 = 25;
         //   }else { $cal1=0; }

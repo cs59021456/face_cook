@@ -39,14 +39,18 @@ class RefController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name_ref' => 'required',
+            'intro' => 'required',
+        ]);
         $ref = new Ref;
         $ref->user_id = auth::user()->id;
         $ref->name_ref =  $request->get('name_ref');
         $ref->intro =  $request->get('intro');
         $ref->save();
 
-        return redirect()->back()
-                        ->with('success','created successfully.');
+         $refs = ref::where('user_id',Auth::user()->id)->get();
+        return view('ref.show',compact('refs'));
     }
 
     /**
@@ -82,18 +86,15 @@ class RefController extends Controller
      */
     public function update(Request $request,$id)
     {error_log($id);
-        $request->validate([
 
-            'name_ref' => 'required',
-            'intro' => 'required',
-        ]);
 
         $ref = Ref::find($id);
         $ref->name_ref =  $request->get('name_ref');
         $ref->intro =  $request->get('intro');
         $ref->save();
 
-        return redirect()-back();
+           $refs = ref::where('user_id',Auth::user()->id)->get();
+        return view('ref.show',compact('refs'));
 
     }
 
@@ -105,10 +106,9 @@ class RefController extends Controller
      */
     public function destroy($id)
     {
-        $ref=ref::where('id',$id);
+        $ref=ref::find($id);
         $ref->delete();
 
-        return redirect()->back()
-                        ->with('success','Deleted successfully');
+        return redirect()->back()->with('success','Deleted successfully');
     }
 }

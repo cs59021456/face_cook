@@ -59,7 +59,7 @@
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
-                    <input name="amount" class="form-control" type="text" placeholder="ปริมาณวัตถุดิบ">
+                    <input name="amount" class="form-control" type="text" placeholder="ปริมาณวัตถุดิบ" value="{{$addmaterial->amount}}" >
             </div>
 
 
@@ -83,7 +83,7 @@
 
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
               <button type="submit" class="btn btn-primary">บันทึก</button>
-              <a class="btn btn-primary" href="/Addmater/show/{id}">ย้อนกลับ</a>
+              <a class="btn btn-primary" href="/Addmater/show/{{$addmaterial->id_ref}}">ย้อนกลับ</a>
             </div>
 
 

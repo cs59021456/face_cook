@@ -68,20 +68,10 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+
+    protected function create(array  $data)
     {
 
-       
-
-        $data->validate([
-            // 'avatar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'name' => 'required',
-            'first_name' => 'required',
-            'last_name' => 'required',
-        ]);
-
-
-            $user = New User;
             // $avatarName = $user->id.'_avatar'.time().'.'.request()->avatar->getClientOriginalExtension();
             // $request->avatar->storeAs('avatars',$avatarName);
 

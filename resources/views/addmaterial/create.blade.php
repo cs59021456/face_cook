@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\DB;
+use App\materials;
+
+use App\menus_materials;
+
 ?>
 @extends('layouts.app')
 
@@ -389,53 +393,24 @@ use Illuminate\Support\Facades\DB;
                         <th>หน่วยวัตถุดิบ</th>
                         <th>เวลาที่เพิ่มวัตถุดิบ</th>
                         <th>เวลาที่แก้ไขวัตถุดิบ</th>
-                        <th width="280px">Action</th>
+                        
                     </tr>
                     @foreach ($add as $adds)
                     <tr>
                         <td>{{ $adds ->id_ref}}</td>
-                        <td>{{ $adds->material}}</td>
+                        <td>
+                            <?php
+                            $findmaterials = materials::find($adds->material);
+                            $findmenu = menus_materials::where('id_material',$adds->material)->get();
+
+                            ?>
+
+                            {{$findmaterials->name_m}}</td>
                         <td>{{ $adds->amount}}</td>
                         <td>{{ $adds->unit}}</td>
                         <td>{{ $adds->created_at}}</td>
                         <td>{{ $adds->updated_at}}</td>
-                        <td>
-                                <form action="{{ route('addmaterial.destroy',$adds->id) }}" method="POST">
-                                        <a class="btn btn-primary" href="{{ route('addmaterial.edit',$adds->id) }}">แก้ไข</a>
 
-
-
-                                        @csrf
-                                        @method('DELETE')
-
-                                            <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{ $adds ->id_ref}}">
-                                        ลบวัตถุดิบ
-                                        </button>
-
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="exampleModal{{$adds ->id_ref}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                            <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">ลบวัตถุดิบ</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                            </div>
-                                            <div class="modal-body">
-                                            คุณต้องการลบวัตถุดิบนี้จริงหรือไม่?
-                                            </div>
-                                            <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
-                                            <button type="submit" class="btn btn-outline-danger">ลบ</button>
-                                            </div>
-                                            </div>
-                                            </div>
-                                        </div>
-
-                                    </form>
-                        </td>
                     </tr>
                     @endforeach
                 </table>

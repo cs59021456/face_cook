@@ -83,26 +83,20 @@ use App\materials;
                     <?php
                     $i = $i + 25;
                     ?>
-
                     @elseif($item1->id_material == $data[1]->id)
-
                     <?php
                     $i =$i + 25;
                     ?>
-
                     @elseif($item1->id_material == $data[2]->id)
                     <?php
                     $i =$i + 25;
                     ?>
-
                     @elseif($item1->id_material == $data[3]->id)
-
                     <?php
                     $i =$i + 25;
                     ?>
                     {{-- {{$i}} --}}
                     @else
-
                     <?php
                         $namematerial = materials::find($item1->id_material);
                         $i = $i - 25;
@@ -120,9 +114,9 @@ use App\materials;
     </tr>
     @endforeach
 </table>
-<div class="alert alert-success" role="alert">
+{{-- <div class="alert alert-success" role="alert">
     เปอร์เซ็นที่จะทำได้  %
-  </div>
+  </div> --}}
 
 <!-- //ปุ่มกลับ -->
 <div class="pull-right">

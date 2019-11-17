@@ -81,7 +81,7 @@ class UserController extends Controller
         $user->last_name =  $request->get('last_name');
         $user->save();
 
-        return redirect()->back();
+        return redirect('/showprofile');
     }
 
     /**
