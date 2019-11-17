@@ -10,7 +10,12 @@
         </div>
     </div>
 
-    @if ($errors->any())
+
+
+    <form action='/ref/update/{{$refs->id}}' method="POST" >
+        @csrf
+
+        @if ($errors->any())
         <div class="alert alert-danger">
             <strong>Whoops!</strong> There were some problems with your input.<br><br>
             <ul>
@@ -20,9 +25,6 @@
             </ul>
         </div>
     @endif
-
-    <form action='/ref/update/{{$refs->id}}' method="POST" >
-        @csrf
 
 
         <div class="col-xs-12 col-sm-12 col-md-12">

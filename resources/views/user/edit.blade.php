@@ -35,12 +35,23 @@
           <form action="{{'/user/update'}}" method="POST" enctype="multipart/form-data">
             @csrf
 
+            @if ($errors->any())
+        <div class="alert alert-danger">
+            <strong>โอ๊ะโอ!</strong>กรุณากรอกข้อมูลวัตถุดิบให้ครบ
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ "กรุณากรอกให้ครบ" }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
             <div class="row">
                 <div class="col">
 
                 </div>
                 <div class="col">
-                    <label for="inputEmail4">Username</label>
+                    <label for="inputEmail4">ชื่อผู้ใช้</label>
                     <input type="text" class="form-control" id="inputEmail4" value="{{Auth::user()->name}}" name="name">
 
                     <label for="inputEmail4">ชื่อจริง</label>
@@ -76,7 +87,7 @@
 
         </div>
 
-        
+
 
 
 

@@ -60,7 +60,7 @@ use App\materials;
         </td>
         <td>{{ $findnamemenu->menu_ing}}</td>
         <td>{{ $findnamemenu->formula}}</td>
-        <td>
+        <td> 
 
 
 

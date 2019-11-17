@@ -43,6 +43,17 @@
 <form action="{{ route('ref.store') }}" method="POST">
     @csrf
 
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <strong>โอ๊ะโอ้ว!</strong> กรุณาใส่ข้อมูลให้ครบด้วยนะจ๊ะ.<br><br>
+        <ul>
+            @foreach ($errors->all() as $error)
+
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
 
 
     <div class="col-xs-12 col-sm-12 col-md-12">

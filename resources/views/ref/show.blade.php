@@ -22,7 +22,7 @@
                           <p class="card-text">รายละเอียดตู้เย็น:{{$item->intro}}</p>
 
                           <form action="{{ route('ref.destroy',$item->id) }}" method="POST">
-                                <a href="/Addmater/create/{{$item->id}}" class="btn btn-outline-success">เพิ่มวัตถุดิบเข้าตู้เย็น</a>
+                                <a href="/Addmater/create/{{$item->id}}" class="btn btn-outline-success">เพิ่มและดูวัตถุดิบ</a>
                                 <a href="/Addmater/show/{{$item->id}}" class="btn btn-outline-info">ดูวัตถุดิบและสูตรอาหารที่ทำได้</a>
                           {{-- <a href="/search_ref/{{$item->id}}" class="btn btn-outline-secondary">ค้นหาสูตรอาหาร</a> --}}
                             <a class="btn btn-outline-primary" href="{{ route('ref.edit',$item->id)}}">แก้ไขตู้เย็น</a>

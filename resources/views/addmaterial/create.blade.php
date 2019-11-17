@@ -393,7 +393,7 @@ use App\menus_materials;
                         <th>หน่วยวัตถุดิบ</th>
                         <th>เวลาที่เพิ่มวัตถุดิบ</th>
                         <th>เวลาที่แก้ไขวัตถุดิบ</th>
-                        
+
                     </tr>
                     @foreach ($add as $adds)
                     <tr>

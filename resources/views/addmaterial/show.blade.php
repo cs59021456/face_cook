@@ -65,7 +65,7 @@ use App\menu;
 
                    @if ($message = Session::get('success'))
                    <div class="alert alert-success">
-                   <p>{{ $message }}</p>
+                   <p>{{ $message}}</p>
                    </div>
                    @endif
 
@@ -117,7 +117,7 @@ use App\menu;
                                     @method('DELETE')
 
                                         <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{ $addmaterial->id}}">
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{ $addmaterial->id_ref}}">
                                     ลบวัตถุดิบ
                                     </button>
 
