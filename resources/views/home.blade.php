@@ -40,7 +40,7 @@
 
 
                                             <div class="col-4">
-                                                    <a class="btn btn-info" href="/refme/{{Auth::user()->id}}">ค้นหาสูตรอาหารจากตู้เย็น</a>
+                                                    <a class="btn btn-info" href="/refme/{{Auth::user()->id}}">ค้นหาสูตรอาหารจากวัตถุดิบในตู้เย็น</a>
                                             </div>
                                           </div>
 

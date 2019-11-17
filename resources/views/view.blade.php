@@ -10,6 +10,9 @@
 use App\menu;
 use App\menus_materials;
 use App\materials;
+
+
+
 ?>
 
 @section('content')
@@ -42,6 +45,7 @@ use App\materials;
     </tr>
 
     @foreach ($data as $data1)
+
     <?php
     $findmenus_materials = menus_materials::where('id_material',$data1 ->id)->get();
     ?>
@@ -61,50 +65,56 @@ use App\materials;
 
 
                     <?php
-                    // $find = menus_materials::where([['id_material', 'not like', "%$data1->id%"],['id_menu',$findnamemenu->id]])->get();
+                    // $findmenu = menus_materials::where([['id_material', 'not like', "%$item->id_material%"],['id_menu',$findnamemenu->id]])->get();
                     $findmenu = menus_materials::where('id_menu',$findnamemenu->id)->get();
-
                     ?>
 
                         {{-- {{ $data1->id   }} --}}
 
 
 
+                        <?php
+                        $i = 0;
+                       ?>
                 @foreach ($findmenu as $item1)
                     {{-- {{$item1->id_material}} --}}
+
                     @if($item1->id_material == $data[0]->id)
-
-
-                    {{-- {{$item1[1]->id_material}}
-                    {{$item1[2]->id_material}}
-                    {{$item1[3]->id_material}} --}}
+                    <?php
+                    $i = $i + 25;
+                    ?>
 
                     @elseif($item1->id_material == $data[1]->id)
-                    {{-- {{$item1[0]->id_material}}
-                    {{$item1[2]->id_material}}
-                    {{$item1[3]->id_material}} --}}
+
+                    <?php
+                    $i =$i + 25;
+                    ?>
 
                     @elseif($item1->id_material == $data[2]->id)
-                    {{-- {{$item1[1]->id_material}}
-                    {{$item1[0]->id_material}}
-                    {{$item1[3]->id_material}} --}}
+                    <?php
+                    $i =$i + 25;
+                    ?>
 
                     @elseif($item1->id_material == $data[3]->id)
-                    {{-- {{$item1[0]->id_material}}
-                    {{$item1[1]->id_material}}
-                    {{$item1[2]->id_material}} --}}
+
+                    <?php
+                    $i =$i + 25;
+                    ?>
+                    {{-- {{$i}} --}}
                     @else
 
                     <?php
                         $namematerial = materials::find($item1->id_material);
+                        $i = $i - 25;
                     ?>
+                    {{-- {{$i}} --}}
                     - {{$namematerial->name_m}}
                     @endif
 
                 @endforeach
 
 
-
+            {{-- {{$i}} --}}
         </td>
 
     </tr>

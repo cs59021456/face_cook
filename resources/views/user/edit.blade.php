@@ -52,7 +52,7 @@
 
                 </div>
                 <div class="col">
-                 
+
                 </div>
               </div>
 
@@ -64,7 +64,7 @@
 
                 </div>
                 <div class="col-sm">
-                  <button type="submit" class="btn btn-primary">บันทึก</button>
+                  <button type="submit" class="btn btn-success">บันทึก</button>
                   <a class="btn btn-primary" href="/showprofile">ย้อนกลับ</a>
                 </div>
                 <div class="col-sm">
@@ -75,6 +75,8 @@
           </form>
 
         </div>
+
+        
 
 
 

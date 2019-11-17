@@ -35,7 +35,7 @@
             <div class="center">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                   <div class="form-group">
-                    <strong>Username:</strong>
+                    <strong>ชื่อผู้ใช้:</strong>
                     {{ Auth::user()->name}}
                 </div>
             </div>
@@ -62,7 +62,7 @@
                 {{ Auth::user()->last_name}}
             </div>
         </div>
-        <a class="btn btn-primary" href="/edituser">แก้ไข</a>
+        <a class="btn btn-warning" href="/edituser">แก้ไข</a>
             <a class="btn btn-primary" href="{{ route('home') }}">ย้อนกลับ</a>
 
         </div>
@@ -70,6 +70,8 @@
     </div>
   </div>
 </div>
+
+
 
 @endsection
 

@@ -28,19 +28,21 @@
                         </div>
 
 
+
+
                         <div class="form-group row">
-                            <label for="first_name" class="col-md-4 col-form-label text-md-right">{{ __('ชื่อจริง*') }}</label>
+                                <label for="first_name" class="col-md-4 col-form-label text-md-right">{{ __('ชื่อจริง') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}"  autocomplete="first_name" autofocus>
+                                <div class="col-md-6">
+                                    <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}"  autocomplete="first_name" autofocus>
 
-                                @error('first_name')
-                                    <span class="invalid-feedback text-danger" role="alert">
-                                        <strong>{{ "กรุณากรอกชื่อจริง" }}</strong>
-                                    </span>
-                                @enderror
+                                    @error('first_name')
+                                        <span class="invalid-feedback text-danger" role="alert">
+                                            <strong>{{ "กรุณากรอกชื่อจริง" }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
 
 
 

@@ -1,3 +1,7 @@
+<?php
+
+use Illuminate\Support\Facades\DB;
+?>
 @extends('layouts.app')
 
 <style>
@@ -5,34 +9,41 @@
     body {
         background-image: url(https://images.pexels.com/photos/207301/pexels-photo-207301.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
     }
+
+    .myDiv {
+        display: none;
+    }
+
+    #showOne {
+        /* color: red; */
+        /* border: 1px solid red; */
+        padding: 10px;
+    }
+
+    #showTwo {
+        /* color: green; */
+        /* border: 1px solid green; */
+        padding: 10px;
+    }
 </style>
 
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-sm">
-            <div class="card border-danger">
 
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm">
 
                         </div>
                         <div class="col-sm">
-                            <h2>เพิ่มวัตถุดิบเข้าตู้เย็นของคุณ</h2>
+                            <h2>เพิ่มวัตถุดิบเข้าตู้</h2>
                         </div>
                         <div class="col-sm">
-
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="center">
-                    <div class="col-lg-12 margin-tb">
-                        <div class="pull-left">
-
 
                         </div>
                     </div>
@@ -44,10 +55,10 @@
 
                     @if ($errors->any())
                     <div class="alert alert-danger">
-                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                        <strong>โอ๊ะโอ้ว!</strong> กรุณาใส่ข้อมูลให้ครบด้วยนะจ๊ะ.<br><br>
                         <ul>
                             @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
+
                             @endforeach
                         </ul>
                     </div>
@@ -58,12 +69,13 @@
                             <div class="form-group">
                                 <strong>ตู้เย็น:</strong>
                                 <input type="text" name="id_ref" class="form-control" value="{{$ref->id}}">
+                                <strong>ชื่อตู้เย็น:</strong>
+                                <input type="text" class="form-control" id="inputEmail4" value="{{$ref->name_ref}}" name="name_ref">
                             </div>
                         </div>
 
                         <div class="form-group">
-                                <strong>ชื่อตู้เย็น:</strong>
-                                 <input type="text" class="form-control" id="inputEmail4" value="{{$ref->name_ref}}" name="name_ref">
+
                         </div>
                     </div>
 
@@ -73,7 +85,26 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-sm">
-                                <strong>ประเภทวัตถุดิบ:</strong>
+
+                            </div>
+                            <div class="col-sm">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+
+                        <input type="hidden" value="ประเภทวัตถุดิบ" name="type_material">
+                    </div>
+
+
+
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                <strong>ชื่อวัตถุดิบ:(กรุณาเลือกชนิดวัตถุดิบ)</strong>
                             </div>
                             <div class="col-sm">
 
@@ -82,46 +113,13 @@
                     </div>
 
 
-                    <div class="col-xs-12 col-sm-12 col-md-12">
-                        <select class="custom-select" name="type_material">
-                            <option selected>ประเภทวัตถุดิบ</option>
-                            <option value="เนื้อสัตว์">เนื้อสัตว์</option>
-                            <option value="ผัก">ผัก</option>
-
-                        </select>
-                    </div>
-
-
-
-
-
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-sm">
-                                    <strong>ชื่อวัตถุดิบ:</strong>
-                                </div>
-                                <div class="col-sm">
-
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="col-xs-12 col-sm-12 col-md-12">
-                            <select class="custom-select" name="material" >
-                                <option selected>ชื่อวัตถุดิบ</option>
-                                <option value="ไก่">ไก่</option>
-                                    <option value="ปลา">ปลา</option>
-                                    <option value="หมู">หมู</option>
-                                    <option value="ไข่ไก่">ไข่ไก่</option>
-                                    <option value="ไข่เป็ด">ไข่เป็ด</option>
-                                    <option value="เป็ด">เป็ด</option>
-                                    <option value="กุ้ง">กุ้ง</option>
-                                    <option value="ปลาหมึก">ปลาหมึก</option>
-                                    <option value="ปู">ปู</option>
-                                    <option value="หอย">หอย</option>
-                                    <option value="ปลาดอรี่">ปลาดอรี่</option>
-                                    <option value="ปลากะพง">ปลากะพง</option>
+                    <div class="col-sm">
+                        <input type="radio" name="demo" value="One" /> ผัก
+                        <input type="radio" name="demo" value="Two" /> เนื้อสัตว์
+                        <div id="showOne" class="myDiv">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <select class="custom-select" name="materiall">
+                                    <option selected>ผัก</option>
                                     <option value="กระเจี๊ยบ ">กระเจี๊ยบ</option>
                                     <option value="กระเจี๊ยบแดง">กระเจี๊ยบแดง</option>
                                     <option value="กระชาย">กระชาย</option>
@@ -138,6 +136,7 @@
                                     <option value="กะหล่ำปี">กะหล่ำปี</option>
                                     <option value="กานพลู">กานพลู</option>
                                     <option value="ขนุนอ่อน">ขนุนอ่อน</option>
+                                    <option value="18">ขิง</option>
                                     <option value="ขมิ้น">ขมิ้น</option>
                                     <option value="ขมิ้นชัน">ขมิ้นชัน</option>
                                     <option value="ข่า">ข่า</option>
@@ -175,8 +174,8 @@
                                     <option value="บวบ">บวบ</option>
                                     <option value="บัว">บัว</option>
                                     <option value="บีทรูท">บีทรูท</option>
-                                    <option value="ใบกะเพรา">ใบกะเพรา</option>
-                                    <option value="ใบกะเพราช้าง">ใบกะเพราช้าง</option>
+                                    <option value="2">ใบกะเพรา</option>
+                                    <option value="9">ใบมะกรูด</option>
                                     <option value="ใบกุยช่าย">ใบกุยช่าย</option>
                                     <option value="ใบชะพลู">ใบชะพลู</option>
                                     <option value="ใบชะม">ใบชะอม</option>
@@ -235,7 +234,7 @@
                                     <option value="มะแว้ง">มะแว้ง</option>
                                     <option value="มะอึก">มะอึก</option>
                                     <option value="มันเทศ">มันเทศ</option>
-                                    <option value="มันฝรั่ง>มันฝรั่ง</option>
+                                    <option value="มันฝรั่ง">มันฝรั่ง</option>
                                     <option value="มันสำปะหลัง">มันสำปะหลัง</option>
                                     <option value="ยอ">ยอ</option>
                                     <option value="ยอดกระเจี๊ยบแดง">ยอดกระเจี๊ยบแดง</option>
@@ -284,68 +283,176 @@
                                     <option value="อัญชัน">อัญชัน</option>
 
 
-                            </select>
+                                </select>
+                            </div>
                         </div>
+                        <div id="showTwo" class="myDiv">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <select class="custom-select" name="materia">
+                                    <option selected>เนื้อสัตว์</option>
+                                    <option value="15">เนื้อไก่</option>
+                                    <option value="ปลา">ปลา</option>
+                                    <option value="หมู">หมู</option>
+                                    <option value="ไข่ไก่">ไข่ไก่</option>
+                                    <option value="ไข่เป็ด">ไข่เป็ด</option>
+                                    <option value="เป็ด">เป็ด</option>
+                                    <option value="กุ้ง">กุ้ง</option>
+                                    <option value="ปลาหมึก">ปลาหมึก</option>
+                                    <option value="ปู">ปู</option>
+                                    <option value="หอย">หอย</option>
+                                    <option value="ปลาดอรี่">ปลาดอรี่</option>
+                                    <option value="ปลากะพง">ปลากะพง</option>
 
 
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-sm">
-                                    <strong>หน่วยวัตถุดิบ:</strong>
-                                </div>
-                                <div class="col-sm">
-
-                                </div>
+                                </select>
                             </div>
                         </div>
 
-
-                        <div class="col-xs-12 col-sm-12 col-md-12">
-                            <select class="custom-select" name="unit">
-                                <option selected>หน่วยวัตถุดิบ</option>
-                                <option value="กรัม">กรัม</option>
-                                <option value="กิโลกรัม">กิโลกรัม</option>
-                                <option value="กำ">กำ</option>
-                                <option value="ขีด">ขีด</option>
-                                <option value="ฟอง">ฟอง</option>
-                                <option value="ตัว">ตัว</option>
-                                <option value="ลูก">ลูก</option>
-                            </select>
-                        </div>
+                    </div>
 
 
-
-
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-sm">
-                                    <strong>ปริมาณวัตถุดิบ:</strong>
-                                </div>
-                                <div class="col-sm">
-
-                                </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                <strong>หน่วยวัตถุดิบ:</strong>
                             </div>
-                        </div>
+                            <div class="col-sm">
 
-                        <div class="col-xs-12 col-sm-12 col-md-12">
-                                <input name="amount" class="form-control" type="text" placeholder="ปริมาณวัตถุดิบ">
-                        </div>
-
-
-
-
-
-                        <!-------ปุ่มบันทึกกับปุ่มกลับหน้าโฮม----->
-                        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                            <button type="submit" class="btn btn-success">บันทึก</button>
-                            <a class="btn btn-primary"href="/refme/{{Auth::user()->id}}">ย้อนกลับ</a>
+                            </div>
                         </div>
                     </div>
-                </form>
+
+
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <select class="custom-select" name="unit">
+                            <option selected>หน่วยวัตถุดิบ</option>
+                            <option value="กรัม">กรัม</option>
+                            <option value="กิโลกรัม">กิโลกรัม</option>
+                            <option value="กำ">กำ</option>
+                            <option value="ขีด">ขีด</option>
+                            <option value="ฟอง">ฟอง</option>
+                            <option value="ตัว">ตัว</option>
+                            <option value="ลูก">ลูก</option>
+                        </select>
+                    </div>
+
+
+
+
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                <strong>ปริมาณวัตถุดิบ:</strong>
+                            </div>
+                            <div class="col-sm">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <input name="amount" class="form-control" type="text" placeholder="ปริมาณวัตถุดิบ">
+                    </div><br>
+
+
+                    <!-------ปุ่มบันทึกกับปุ่มกลับหน้าโฮม----->
+                    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                        <button type="submit" class="btn btn-success">บันทึก</button>
+                        <a class="btn btn-primary" href="/refme/{{Auth::user()->id}}">ย้อนกลับ</a>
+                    </div>
+
+
+
+
+
+
+
+
+            </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <!-- ตารางซีกขวา ข้อมูลทั้งหมดในตู้เย็น -->
+                <?php
+                $add = DB::select('select* from addmaterials');
+                ?>
+                <table class="table table-bordered bg-white text-dark">
+                    <tr>
+
+                        <th>ตู้เย็นที่</th>
+                        <th>ชื่อวัตถุดิบ</th>
+                        <th>ปริมาณวัตถุดิบ</th>
+                        <th>หน่วยวัตถุดิบ</th>
+                        <th>เวลาที่เพิ่มวัตถุดิบ</th>
+                        <th>เวลาที่แก้ไขวัตถุดิบ</th>
+                        <th width="280px">Action</th>
+                    </tr>
+                    @foreach ($add as $adds)
+                    <tr>
+                        <td>{{ $adds ->id_ref}}</td>
+                        <td>{{ $adds->material}}</td>
+                        <td>{{ $adds->amount}}</td>
+                        <td>{{ $adds->unit}}</td>
+                        <td>{{ $adds->created_at}}</td>
+                        <td>{{ $adds->updated_at}}</td>
+                        <td>
+                                <form action="{{ route('addmaterial.destroy',$adds->id) }}" method="POST">
+                                        <a class="btn btn-primary" href="{{ route('addmaterial.edit',$adds->id) }}">แก้ไข</a>
+
+
+
+                                        @csrf
+                                        @method('DELETE')
+
+                                            <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{ $adds ->id_ref}}">
+                                        ลบวัตถุดิบ
+                                        </button>
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModal{{$adds ->id_ref}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">ลบวัตถุดิบ</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            </div>
+                                            <div class="modal-body">
+                                            คุณต้องการลบวัตถุดิบนี้จริงหรือไม่?
+                                            </div>
+                                            <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+                                            <button type="submit" class="btn btn-outline-danger">ลบ</button>
+                                            </div>
+                                            </div>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                        </td>
+                    </tr>
+                    @endforeach
+                </table>
             </div>
         </div>
     </div>
 </div>
-</div>
-@endsection
+<!-- radio button script ช่วย คลิกเด้ง -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('input[type="radio"]').click(function() {
+            var demovalue = $(this).val();
+            $("div.myDiv").hide();
+            $("#show" + demovalue).show();
+        });
+    });
+</script>
 
+@endsection

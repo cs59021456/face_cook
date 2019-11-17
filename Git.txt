@@ -1,7 +1,7 @@
- //ดูว่าสถานะเป็นสีอะไร 
+git status //ดูว่าสถานะเป็นสีอะไร 
 git add . //เพิ่มไฟล์เข้าสู่ Repository
 git status
-git commit -m "update 12/11/19"
+git commit -m "Hope to be our day"
 git push -u origin master // อัพขึ้น github
 
 

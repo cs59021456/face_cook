@@ -13,10 +13,10 @@
 
     @if ($errors->any())
         <div class="alert alert-danger">
-            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <strong>โอ๊ะโอ!</strong>กรุณากรอกข้อมูลวัตถุดิบให้ครบ
             <ul>
                 @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
+                    <li>{{ "กรุณากรอกให้ครบ" }}</li>
                 @endforeach
             </ul>
         </div>
@@ -63,7 +63,7 @@
             </div>
 
 
-            
+
             <strong>หน่วยวัตถุดิบ:</strong>
         <div class="col-xs-12 col-sm-12 col-md-12">
                 <select class="custom-select" name="unit">

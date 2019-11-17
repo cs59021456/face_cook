@@ -47,26 +47,55 @@ class AddmaterialController extends Controller
      */
     public function store(Request $request )
     {
-        $request->validate([
-            'id_ref' => 'required',
-            'name_ref' => 'required',
-            'material' => 'required',
-            'type_material' => 'required',
-            'amount' => 'required',
-            'unit' => 'required',
+        if($request->materiall && $request->materia == 'เนื้อสัตว์')
+        {
+            $request->validate([
+                'id_ref' => 'required',
+                'name_ref' => 'required',
+                // 'material' => 'required',
+                'amount' => 'required',
+                'unit' => 'required',
 
-
-        ]);
-        $request->user_id = auth::user()->id;
-        Addmaterial::create($request->all());
-
-
-
-
-        return redirect()->back()
+            ]);
+            // $request->user_id = auth::user()->id;
+            // Addmaterial::create($request->all());
+            Addmaterial::create([
+                'id_ref' => $request->id_ref,
+                'name_ref' => $request->name_ref,
+                'material' => $request->materiall,
+                'type_material' => $request->type_material,
+                'amount' => $request->amount,
+                'unit' => $request->unit,
+            ]);
+            return redirect()->back()
             ->with('success', 'created successfully.');
-    }
+        }
+        elseif($request->materia && $request->materiall == 'ผัก')
+        {
+            $request->validate([
+                'id_ref' => 'required',
+                'name_ref' => 'required',
+                // 'material' => 'required',
+                // 'type_material' => 'required',
+                'amount' => 'required',
+                'unit' => 'required',
 
+            ]);
+            // $request->user_id = auth::user()->id;
+            // Addmaterial::create($request->all());
+            Addmaterial::create([
+                'id_ref' => $request->id_ref,
+                'name_ref' => $request->name_ref,
+                'material' => $request->materia,
+                'type_material' => $request->type_material,
+                'amount' => $request->amount,
+                'unit' => $request->unit,
+            ]);
+            return redirect()->back()
+            ->with('success', 'created successfully.');
+        }
+
+    }
     /**
      * Display the specified resource.
      *
@@ -145,9 +174,9 @@ class AddmaterialController extends Controller
     {
         //dd($request->rw1,$request->rw2,$request->rw3,$request->rw4);
 
-        //   if ($request->rw1 && $request->rw2 && $request->rw3 && $request->rw4 == NULL) {
-        //       return redirect()->back();
-        //  }
+          if ($request->rw1 && $request->rw2 && $request->rw3 && $request->rw4 == NULL) {
+              return redirect()->back();
+         }
         //    if ($request->rw1 != "") {
         //        $cal1 = 25;
         //   }else { $cal1=0; }
@@ -163,11 +192,9 @@ class AddmaterialController extends Controller
         //    $result = $cal1+$cal2+$cal3+$cal4;
 
         $data = materials::whereIn('name_m',[$request->rw1,$request->rw2,$request->rw3,$request->rw4])
-            //  ->where('name',$request->rw2)
-            //  ->orwhere('key_word', 'LIKE', '%' . $request->rw3 . '%')
-            //  ->orwhere('key_word', 'LIKE', '%' . $request->rw4 . '%')
+
             ->get();
-        
+
         return view('view', compact('data'));
     }
 
