@@ -87,6 +87,12 @@ class RefController extends Controller
     public function update(Request $request,$id)
     {error_log($id);
 
+        $request->validate([
+            'name_ref' => 'required',
+            'intro' => 'required',
+
+        ]);
+
 
         $ref = Ref::find($id);
         $ref->name_ref =  $request->get('name_ref');

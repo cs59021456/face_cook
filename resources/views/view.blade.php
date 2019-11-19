@@ -23,7 +23,7 @@ use App\materials;
 
     </div>
     <div class="col-sm">
-    <p><a  class="text-dark bg-warning"><h2>Menu Search</h2></a></p>
+    <p><a  class="text-dark bg-warning"><h2>ค้นหาสูตรอาหารจากวัตถุดิบ</h2></a></p>
 
     </div>
     <div class="col-sm">
@@ -32,13 +32,14 @@ use App\materials;
   </div>
 </div>
 
+{{-- ตารางที่แสดงสูตรอาหาร --}}
 <table class="table table-bordered bg-white">
     <tr class="table-danger " >
         <th>ชื่อเมนูอาหาร</th>
         <th>ส่วนผสม</th>
         <th>ขั้นตอนการทำ</th>
         <th>ของที่ขาด</th>
-         <!--<th>เปอร์เซ็นที่จะทำได้</th>-->
+        <th>เปอร์เซ็นที่จะทำได้</th>
 
 
 
@@ -52,20 +53,34 @@ use App\materials;
     @endforeach
     @foreach ($findmenus_materials as $item)
     <tr>
+        {{-- ชื่อเมนู --}}
         <td class="table-info">
             <?php
                 $findnamemenu = menu::find($item ->id_menu);
             ?>
         {{  $findnamemenu->name_menu}}
         </td>
+        {{-- ส่วนประกอบเมนู --}}
         <td>{{ $findnamemenu->menu_ing}}</td>
+        {{--วิธีทำ--}}
         <td>{{ $findnamemenu->formula}}</td>
-        <td> 
+
+
+
+
+
+
+
+{{-- ของที่ขาด --}}
+        <td>
 
 
 
                     <?php
-                    // $findmenu = menus_materials::where([['id_material', 'not like', "%$item->id_material%"],['id_menu',$findnamemenu->id]])->get();
+                    //$findmenu = menus_materials::where([['id_material', 'not like', "%$item->id_material%"],['id_menu',$findnamemenu->id]])->get();
+                    //$findmenu = menus_materials::where([['id_material', 'Like', "%$item->id_material%"],['id_menu',$findnamemenu->id]])->get();
+
+                    // หาสิ่งที่ขาด
                     $findmenu = menus_materials::where('id_menu',$findnamemenu->id)->get();
                     ?>
 
@@ -74,33 +89,37 @@ use App\materials;
 
 
                         <?php
-                        $i = 0;
+                        $i = 100;
                        ?>
                 @foreach ($findmenu as $item1)
                     {{-- {{$item1->id_material}} --}}
 
                     @if($item1->id_material == $data[0]->id)
                     <?php
-                    $i = $i + 25;
+                    $i = $i - 25;
                     ?>
+
                     @elseif($item1->id_material == $data[1]->id)
                     <?php
-                    $i =$i + 25;
+                    $i = $i - 25;
                     ?>
+
                     @elseif($item1->id_material == $data[2]->id)
                     <?php
-                    $i =$i + 25;
+                    $i = $i - 25;
                     ?>
+
                     @elseif($item1->id_material == $data[3]->id)
                     <?php
-                    $i =$i + 25;
+                    $i = $i - 25;
                     ?>
+                    
                     {{-- {{$i}} --}}
                     @else
-                    <?php
+                        <?php
                         $namematerial = materials::find($item1->id_material);
-                        $i = $i - 25;
-                    ?>
+
+                        ?>
                     {{-- {{$i}} --}}
                     - {{$namematerial->name_m}}
                     @endif
@@ -108,7 +127,19 @@ use App\materials;
                 @endforeach
 
 
-            {{-- {{$i}} --}}
+
+
+        </td>
+        <td>
+                @if ($i ==  0)
+                 {{ 100 }} %
+                @elseif($i ==  25)
+                 {{ 75 }} %
+                @elseif($i ==  50)
+                {{ 50 }} %
+                @elseif($i ==  75)
+                {{ 25 }} %
+                @endif
         </td>
 
     </tr>

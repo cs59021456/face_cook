@@ -1,9 +1,9 @@
 <?php
-
 use Illuminate\Support\Facades\DB;
 use App\materials;
-
+use App\addmaterial;
 use App\menus_materials;
+
 
 ?>
 @extends('layouts.app')
@@ -13,17 +13,14 @@ use App\menus_materials;
     body {
         background-image: url(https://images.pexels.com/photos/207301/pexels-photo-207301.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
     }
-
     .myDiv {
         display: none;
     }
-
     #showOne {
         /* color: red; */
         /* border: 1px solid red; */
         padding: 10px;
     }
-
     #showTwo {
         /* color: green; */
         /* border: 1px solid green; */
@@ -62,7 +59,7 @@ use App\menus_materials;
                         <strong>โอ๊ะโอ้ว!</strong> กรุณาใส่ข้อมูลให้ครบด้วยนะจ๊ะ.<br><br>
                         <ul>
                             @foreach ($errors->all() as $error)
-
+                            <li>{{ $error }}</li>
                             @endforeach
                         </ul>
                     </div>
@@ -71,10 +68,11 @@ use App\menus_materials;
                     <div class="center">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>ตู้เย็น:</strong>
-                                <input type="text" name="id_ref" class="form-control" value="{{$ref->id}}">
-                                <strong>ชื่อตู้เย็น:</strong>
-                                <input type="text" class="form-control" id="inputEmail4" value="{{$ref->name_ref}}" name="name_ref">
+                                <strong>ตู้เย็น:</strong><br>
+                                <strong>{{$ref->id}}</strong><br>
+                                <strong>ชื่อตู้เย็น:</strong><br>
+                                <strong>{{$ref->name_ref}}</strong><br>
+
                             </div>
                         </div>
 
@@ -116,13 +114,28 @@ use App\menus_materials;
                         </div>
                     </div>
 
+                    {{-- <div class="form-group row">
+                        <label for="materiall" class="col-md-4 col-form-label text-md-right">{{ __('รหัสผ่าน') }}</label>
 
-                    <div class="col-sm">
-                        <input type="radio" name="demo" value="One" /> ผัก
+                        <div class="col-md-6">
+                            <input id="materiall" type="materiall" class="form-control @error('materiall') is-invalid @enderror" name="materiall"  autocomplete="current-materiall">
+
+                            @error('materiall')
+                                <span class="invalid-feedback text-danger" role="alert" >
+                                    <strong>{{ "กรุณากรอกรหัสผ่านให้ถูกต้อง" }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div> --}}
+
+
+
+                    <div class="col-sm " >
+                        <input  type="radio" name="demo" value="One" /> ผัก
                         <input type="radio" name="demo" value="Two" /> เนื้อสัตว์
                         <div id="showOne" class="myDiv">
                             <div class="col-xs-12 col-sm-12 col-md-12">
-                                <select class="custom-select" name="materiall">
+                                <select class="custom-select" name="materiall">//dfd
                                     <option selected>ผัก</option>
                                     <option value="กระเจี๊ยบ ">กระเจี๊ยบ</option>
                                     <option value="กระเจี๊ยบแดง">กระเจี๊ยบแดง</option>
@@ -290,6 +303,7 @@ use App\menus_materials;
                                 </select>
                             </div>
                         </div>
+
                         <div id="showTwo" class="myDiv">
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <select class="custom-select" name="materia">
@@ -306,12 +320,9 @@ use App\menus_materials;
                                     <option value="หอย">หอย</option>
                                     <option value="ปลาดอรี่">ปลาดอรี่</option>
                                     <option value="ปลากะพง">ปลากะพง</option>
-
-
                                 </select>
                             </div>
                         </div>
-
                     </div>
 
 
@@ -327,8 +338,25 @@ use App\menus_materials;
                     </div>
 
 
+
+
+                    {{-- <div class="col-xs-12 col-sm-12 col-md-12">
+                            <label for="amount" class="col-md-4 col-form-label text-md-right">{{ __('ปริมาณวัตถุดิบ') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="amount" type="text" class="form-control @error('amount') is-invalid @enderror" name="amount" value="{{ old('amount') }}"  autocomplete="amount" autofocus>
+
+                                @error('amount')
+                                    <span class="invalid-feedback text-danger" role="alert">
+                                        <strong>{{ "กรุณากรอกปริมาณ" }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div> --}}
+
+
                     <div class="col-xs-12 col-sm-12 col-md-12">
-                        <select class="custom-select" name="unit">
+                        <select id="unit" type="unit" class="custom-select @error('unit') is-invalid @enderror" name="unit" autocomplete="current-unit">
                             <option selected>หน่วยวัตถุดิบ</option>
                             <option value="กรัม">กรัม</option>
                             <option value="กิโลกรัม">กิโลกรัม</option>
@@ -338,12 +366,29 @@ use App\menus_materials;
                             <option value="ตัว">ตัว</option>
                             <option value="ลูก">ลูก</option>
                         </select>
+                        @error('unit')
+                        <span class="invalid-feedback text-danger" role="alert" >
+                            <strong>{{ "กรุณากรอกรหัสผ่านให้ถูกต้อง" }}</strong>
+                        </span>
+                    @enderror
                     </div>
 
+                    {{-- <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('รหัสผ่าน') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password"  autocomplete="current-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback text-danger" role="alert" >
+                                        <strong>{{ "กรุณากรอกรหัสผ่านให้ถูกต้อง" }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div> --}}
 
 
-
-
+{{--
                     <div class="container">
                         <div class="row">
                             <div class="col-sm">
@@ -353,11 +398,25 @@ use App\menus_materials;
 
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="col-xs-12 col-sm-12 col-md-12">
+                            <label for="amount" class="col-md-4 col-form-label text-md-right">{{ __('ปริมาณวัตถุดิบ') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="amount" type="text" class="form-control @error('amount') is-invalid @enderror" name="amount" value="{{ old('amount') }}"  autocomplete="amount" autofocus>
+
+                                @error('amount')
+                                    <span class="invalid-feedback text-danger" role="alert">
+                                        <strong>{{ "กรุณากรอกปริมาณ" }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                    {{-- <div class="col-xs-12 col-sm-12 col-md-12">
                         <input name="amount" class="form-control" type="text" placeholder="ปริมาณวัตถุดิบ">
-                    </div><br>
+                    </div><br> --}}
 
 
                     <!-------ปุ่มบันทึกกับปุ่มกลับหน้าโฮม----->
@@ -365,15 +424,9 @@ use App\menus_materials;
                         <button type="submit" class="btn btn-success">บันทึก</button>
                         <a class="btn btn-primary" href="/refme/{{Auth::user()->id}}">ย้อนกลับ</a>
                     </div>
-
-
-
-
-
-
-
-
             </div>
+
+
             </form>
         </div>
     </div>
@@ -382,7 +435,8 @@ use App\menus_materials;
             <div class="card-body">
                 <!-- ตารางซีกขวา ข้อมูลทั้งหมดในตู้เย็น -->
                 <?php
-                $add = DB::select('select* from addmaterials');
+
+                $add = addmaterial::where('id_ref',$ref->id)->get();
                 ?>
                 <table class="table table-bordered bg-white text-dark">
                     <tr>
@@ -397,12 +451,11 @@ use App\menus_materials;
                     </tr>
                     @foreach ($add as $adds)
                     <tr>
-                        <td>{{ $adds ->id_ref}}</td>
+                        <td>{{ $adds->id_ref}}</td>
                         <td>
                             <?php
                             $findmaterials = materials::find($adds->material);
                             $findmenu = menus_materials::where('id_material',$adds->material)->get();
-
                             ?>
 
                             {{$findmaterials->name_m}}</td>

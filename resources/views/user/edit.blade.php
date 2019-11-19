@@ -37,10 +37,10 @@
 
             @if ($errors->any())
         <div class="alert alert-danger">
-            <strong>โอ๊ะโอ!</strong>กรุณากรอกข้อมูลวัตถุดิบให้ครบ
+            <strong>โอ๊ะโอ!</strong>กรุณากรอกข้อมูลผู้ใช้ให้ครบ
             <ul>
                 @foreach ($errors->all() as $error)
-                    <li>{{ "กรุณากรอกให้ครบ" }}</li>
+                    <li>{{ "กรุณากรอกข้อมูลให้ครบนะคะ" }}</li>
                 @endforeach
             </ul>
         </div>

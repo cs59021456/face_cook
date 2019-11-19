@@ -17,9 +17,14 @@
                       {{ csrf_field() }}
                       @if(session()->has('login_error'))
                         <div class="alert alert-success">
-                          {{ session()->get('login_error') }}
+                          {{-- {{ session()->get('login_error') }} --}}
+                          <strong>{{ "กรุณากรอกีเมลและรหัสผ่านให้ตรงกัน" }}</strong>
                         </div>
                       @endif
+
+
+
+
                       <div class="form-group row{{ $errors->has('identity') ? ' has-error' : '' }}">
                         <label for="identity" class="col-md-4 col-form-label text-md-right">ชื่อผู้ใช้</label>
 
@@ -45,7 +50,9 @@
 
                                 @error('password')
                                     <span class="invalid-feedback text-danger" role="alert" >
-                                        <strong>{{ "กรุณากรอกรหัสผ่านให้ถูกต้อง" }}</strong>
+                                            @foreach ($errors->all() as $error)
+
+                                            @endforeach{{ "กรุณากรอกรหัสผ่านให้ถูกต้อง" }}</strong>
                                     </span>
                                 @enderror
                             </div>

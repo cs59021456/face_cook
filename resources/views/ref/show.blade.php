@@ -30,9 +30,6 @@
 
 
 
-
-
-
                             @csrf
                             @method('DELETE')
 

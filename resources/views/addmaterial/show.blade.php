@@ -79,7 +79,7 @@ use App\menu;
                            <th>หน่วยวัตถุดิบ</th>
                            <th>เวลาที่เพิ่มวัตถุดิบ</th>
                            <th>เวลาที่แก้ไขวัตถุดิบ</th>
-                           <th width="280px">Action</th>
+                           <th width="280px">การจัดการ</th>
                    </tr>
 
                    @foreach ($addmaterials as $addmaterial)
@@ -122,7 +122,7 @@ use App\menu;
                                     </button>
 
                                     <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal{{ $addmaterial->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="exampleModal{{ $addmaterial->id_ref}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                         <div class="modal-header">

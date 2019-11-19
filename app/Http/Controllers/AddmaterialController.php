@@ -50,8 +50,8 @@ class AddmaterialController extends Controller
         if($request->materiall && $request->materia == 'เนื้อสัตว์')
         {
             $request->validate([
-                'id_ref' => 'required',
-                'name_ref' => 'required',
+                // 'id_ref' => 'required',
+                // 'name_ref' => 'required',
                 // 'material' => 'required',
                 'amount' => 'required',
                 'unit' => 'required',
@@ -60,12 +60,13 @@ class AddmaterialController extends Controller
             // $request->user_id = auth::user()->id;
             // Addmaterial::create($request->all());
             Addmaterial::create([
-                'id_ref' => $request->id_ref,
+                 'id_ref' => $request->id_ref,
                 'name_ref' => $request->name_ref,
                 'material' => $request->materiall,
                 'type_material' => $request->type_material,
                 'amount' => $request->amount,
                 'unit' => $request->unit,
+
             ]);
             return redirect()->back()
             ->with('success', 'created successfully.');
@@ -73,8 +74,8 @@ class AddmaterialController extends Controller
         elseif($request->materia && $request->materiall == 'ผัก')
         {
             $request->validate([
-                'id_ref' => 'required',
-                'name_ref' => 'required',
+                // 'id_ref' => 'required',
+                // 'name_ref' => 'required',
                 // 'material' => 'required',
                 // 'type_material' => 'required',
                 'amount' => 'required',
@@ -84,12 +85,14 @@ class AddmaterialController extends Controller
             // $request->user_id = auth::user()->id;
             // Addmaterial::create($request->all());
             Addmaterial::create([
-                'id_ref' => $request->id_ref,
-                'name_ref' => $request->name_ref,
+                 'id_ref' => $request->id_ref,
+                 'name_ref' => $request->name_ref,
                 'material' => $request->materia,
+                // 'name_m' => $request->name_m,
                 'type_material' => $request->type_material,
                 'amount' => $request->amount,
                 'unit' => $request->unit,
+
             ]);
             return redirect()->back()
             ->with('success', 'created successfully.');
@@ -172,18 +175,28 @@ class AddmaterialController extends Controller
 
     public function menu(Request $request)
 
-    {        $request->validate([
-
+    {
+        $request->validate([
         'rw1' => 'required',
         'rw2' => 'required',
         'rw3' => 'required',
         'rw4' => 'required',
-    ]);
+        ]);
         //dd($request->rw1,$request->rw2,$request->rw3,$request->rw4);
 
-        //   if ($request->rw1 && $request->rw2 && $request->rw3 && $request->rw4 == NULL) {
-        //       return redirect()->back();
-        //  }
+        if ($request->rw1 == "-") {
+            return redirect()->back();
+         }
+         elseif($request->rw2 == "-"){
+            return redirect()->back();
+         }
+         elseif($request->rw3 == "-"){
+            return redirect()->back();
+         }
+         elseif($request->rw4 == "-"){
+             //ทำแจ้งอะเร้อด้วยนะ
+            return redirect()->back();
+         }
         //    if ($request->rw1 != "") {
         //        $cal1 = 25;
         //   }else { $cal1=0; }
@@ -198,9 +211,7 @@ class AddmaterialController extends Controller
         //    }else { $cal4=0; }
         //    $result = $cal1+$cal2+$cal3+$cal4;
 
-        $data = materials::whereIn('name_m',[$request->rw1,$request->rw2,$request->rw3,$request->rw4])
-
-            ->get();
+        $data = materials::whereIn('name_m',[$request->rw1,$request->rw2,$request->rw3,$request->rw4])->get();
 
         return view('view', compact('data'));
     }

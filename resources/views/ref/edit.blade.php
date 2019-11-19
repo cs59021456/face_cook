@@ -17,10 +17,10 @@
 
         @if ($errors->any())
         <div class="alert alert-danger">
-            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <strong>โอ๊ะโอ!</strong>มีปัญหาในการกรอกข้อมูล<br><br>
             <ul>
                 @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
+                    <li>{{ "กรุณากรอกข้อมูลให้ครบ" }}</li>
                 @endforeach
             </ul>
         </div>
@@ -33,6 +33,27 @@
                     <input type="text" class="form-control" id="inputEmail4" value="{{$refs->name_ref}}" name="name_ref">
                 </div>
             </div>
+
+
+
+
+            {{-- <div class="form-group has-search">
+                    <span class="fa fa-search form-control-feedback"></span>
+                <div>
+                    {{-- <input type="text" class="form-control " placeholder="กรอกวัตถุดิบของคุณ" name="rw1"><br> --}}
+
+                    {{-- <div class="col-sm">
+                            <input  id="name_ref" type="text" class="form-control @error('name_ref') is-invalid @enderror" name="name_ref" value="{{$refs->name_ref}}" autocomplete="name_ref" autofocus>
+
+                            @error('name_ref')
+                                <span class="invalid-feedback text-danger" role="alert">
+                                    <strong>{{"กรุณากรอกวัตถุดิบของคุณให้ถูกต้อง"}}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                </div> --}} 
+
+
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
